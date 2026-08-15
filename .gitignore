@@ -1,7 +1,11 @@
-# Antigravity & Agent configs (explicitly requested)
+# Antigravity, Agent configs & Context docs (explicitly ignored)
 .Agents/
 .agents/
 .agent/
+Context.md
+context.md
+CONTEXT.md
+*.context.md
 
 # Python Virtual Environments & Caches
 venv/
