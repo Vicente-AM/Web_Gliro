@@ -11,25 +11,25 @@ export const TestimonialsMarquee: React.FC = () => {
       name: "ChileCompra",
       category: "Mercado Público",
       logoSrc: "/partners/Logo_ChC.png",
-      imgClass: "max-h-8 md:max-h-9 max-w-[160px]",
+      imgClass: "max-h-8 md:max-h-9 max-w-[160px] scale-150",
     },
     {
       name: "AWS",
       category: "Cloud Infrastructure",
       logoSrc: "/partners/AWS.png",
-      imgClass: "max-h-8 md:max-h-9 max-w-[140px]",
+      imgClass: "max-h-8 md:max-h-9 max-w-[140px] scale-110",
     },
     {
       name: "Google Cloud Platform (GCP)",
       category: "Cloud & AI Infrastructure",
       logoSrc: "/partners/Logo_GpN.png",
-      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-125",
+      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-210",
     },
     {
       name: "Gobierno de Chile",
       category: "Institucional & Normativa",
       logoSrc: "/partners/Logo_GdC.png",
-      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-120",
+      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-140",
     },
   ];
 
@@ -96,9 +96,9 @@ export const TestimonialsMarquee: React.FC = () => {
             <span className="text-xs font-mono uppercase tracking-widest text-brand-tertiary font-bold px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 inline-block mb-3">
               Partnerships & Ecosistema
             </span>
-            <h3 className="text-xl md:text-2xl font-poppins font-bold text-brand-tertiary">
+            {/*<h3 className="text-xl md:text-2xl font-poppins font-bold text-brand-tertiary">
               Conectados con las plataformas e infraestructura líder
-            </h3>
+            </h3>*/}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
