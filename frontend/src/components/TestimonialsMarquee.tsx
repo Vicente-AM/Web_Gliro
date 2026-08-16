@@ -11,21 +11,25 @@ export const TestimonialsMarquee: React.FC = () => {
       name: "ChileCompra",
       category: "Mercado Público",
       logoSrc: "/partners/Logo_ChC.png",
+      imgClass: "max-h-8 md:max-h-9 max-w-[160px]",
     },
     {
       name: "AWS",
       category: "Cloud Infrastructure",
       logoSrc: "/partners/AWS.png",
+      imgClass: "max-h-8 md:max-h-9 max-w-[140px]",
     },
     {
       name: "Google Cloud Platform (GCP)",
       category: "Cloud & AI Infrastructure",
       logoSrc: "/partners/Logo_GpN.png",
+      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-125",
     },
     {
       name: "Gobierno de Chile",
       category: "Institucional & Normativa",
       logoSrc: "/partners/Logo_GdC.png",
+      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-120",
     },
   ];
 
@@ -107,11 +111,11 @@ export const TestimonialsMarquee: React.FC = () => {
                   transition-all duration-300 flex flex-col items-center justify-center gap-3 text-center group
                 "
               >
-                <div className="h-12 w-full flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="h-14 w-full flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img
                     src={partner.logoSrc}
                     alt={partner.name}
-                    className="max-h-9 w-auto max-w-[160px] object-contain"
+                    className={`w-auto object-contain transition-transform ${partner.imgClass}`}
                     loading="lazy"
                   />
                 </div>
