@@ -10,22 +10,22 @@ export const TestimonialsMarquee: React.FC = () => {
     {
       name: "ChileCompra",
       category: "Mercado Público",
-      logoSrc: "/partners/chilecompra.svg",
+      logoSrc: "/partners/Logo_ChC.png",
     },
     {
       name: "AWS",
       category: "Cloud Infrastructure",
-      logoSrc: "/partners/aws.svg",
+      logoSrc: "/partners/AWS.png",
     },
     {
       name: "Google Cloud Platform (GCP)",
       category: "Cloud & AI Infrastructure",
-      logoSrc: "/partners/gcp.svg",
+      logoSrc: "/partners/Logo_GpN.png",
     },
     {
       name: "Gobierno de Chile",
       category: "Institucional & Normativa",
-      logoSrc: "/partners/gobierno-de-chile.svg",
+      logoSrc: "/partners/Logo_GdC.png",
     },
   ];
 
