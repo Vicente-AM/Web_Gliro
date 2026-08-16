@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
         {/* Brand Logo */}
         <a
           href="#inicio"
-          className="flex items-center ml-2 group cursor-pointer focus:outline-none select-none transition-all duration-300"
+          className="flex items-center ml-4 group cursor-pointer focus:outline-none select-none transition-all duration-300"
         >
           <img
             src="/media/Logo Gliro N SF.png"
