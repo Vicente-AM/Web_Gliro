@@ -76,9 +76,9 @@ export const productsData = [
 export const solutionsData: ServiceItem[] = [
   {
     id: "software-dev",
-    tag: "Desarrollo a Medida",
+    tag: "Desarrollamos por ti",
     title: "Software Development",
-    description: "Diseñamos y desarrollamos aplicaciones web y móviles personalizadas, integraciones de sistemas ERP/CRM y digitalización de flujos operativos.",
+    description: "Diseñamos y desarrollamos aplicaciones web y móviles, integraciones de sistemas ERP/CRM y digitalización de tus flujos operativos.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -115,27 +115,27 @@ export const portfolioData: ProjectItem[] = [
   {
     id: 1,
     title: "Licitracker - Inteligencia en MercadoPúblico",
-    category: "SaaS Propio · Automatización",
+    category: "SaaS · Automatización",
     categoryKey: "ecommerce",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
+    image: "https://patrimonio.bienes.cl/wp-content/uploads/2022/01/IMG_4376-scaled.jpg",
     results: "+400 términos monitoreados en tiempo real cada día",
     url: "https://licitracker.cl",
   },
   {
     id: 2,
     title: "Traza - Gestión Documental ISO 9001",
-    category: "SaaS Propio · Certificación",
+    category: "SaaS · Certificación",
     categoryKey: "corporate",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80",
+    image: "https://kaizencertificacion.com/wp-content/uploads/2021/12/mantener-el-certificado-ISO-9001.jpg",
     results: "Trazabilidad 100% auditable para DZF y Cardiotec",
     url: "https://traza.gliro.cl",
   },
   {
     id: 3,
-    title: "Cardiotec - ERP a Medida & Gestión Médica",
-    category: "Software a Medida · Salud",
+    title: "Cardiotec - ERP integration & Gestión Médica",
+    category: "Software Development · Salud",
     categoryKey: "web",
-    image: "https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=1400&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
     results: "Gestión documental Traza + ERP integral de operaciones",
     url: "https://gliro.cl/contacto/",
   },
@@ -144,7 +144,7 @@ export const portfolioData: ProjectItem[] = [
     title: "DZF Certificadora - Auditorías y Calidad",
     category: "Transformación Digital · ISO",
     categoryKey: "corporate",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
+    image: "",
     results: "Inspecciones en terreno con evidencia fotográfica en la nube",
     url: "https://gliro.cl/contacto/",
   },
@@ -250,7 +250,7 @@ export const faqData: FaqItem[] = [
     answer: "Desarrollamos software a medida (web, móvil, ERPs internos), soluciones SaaS escalables, integraciones con Inteligencia Artificial y herramientas de automatización de procesos (RPA y workflows en la nube).",
   },
   {
-    question: "¿Cuáles son los productos propios de Gliro?",
+    question: "¿Cuáles son los Saas que dispone Gliro?",
     answer: "Contamos con 'Licitracker' (monitoreo automatizado de compras públicas en MercadoPúblico), 'Traza' (gestión documental y trazabilidad para certificadoras ISO 9001) y 'Broker IA' (asistente inteligente 24/7 para inmobiliarias).",
   },
   {
@@ -261,10 +261,10 @@ export const faqData: FaqItem[] = [
     question: "¿Cómo puedo solicitar una cotización o demostración?",
     answer: "Puedes escribirnos directamente por WhatsApp al +56 9 7563 8193 o completar el formulario de contacto indicando tu requerimiento. Te responderemos en menos de 24 horas hábiles.",
   },
-  {
+  /*{
     question: "¿El código y la propiedad del software desarrollado son míos?",
     answer: "Sí, en todos los desarrollos a medida la propiedad intelectual, el código fuente y las bases de datos pertenecen 100% a tu empresa.",
-  },
+  },*/
   {
     question: "¿Ofrecen soporte y mantenimiento post-lanzamiento?",
     answer: "Sí, todos nuestros proyectos cuentan con garantía de soporte técnico, mantenimiento correctivo, monitoreo de infraestructura cloud y evolución de funcionalidades.",

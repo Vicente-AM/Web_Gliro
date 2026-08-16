@@ -5,11 +5,11 @@ import { testimonialsData } from '../data/siteContent';
 export const TestimonialsMarquee: React.FC = () => {
   // Duplicate array for seamless infinite looping
   const row1 = [...testimonialsData, ...testimonialsData];
-  const row2 = [...testimonialsData.slice().reverse(), ...testimonialsData.slice().reverse()];
+  // const row2 = [...testimonialsData.slice().reverse(), ...testimonialsData.slice().reverse()];
 
   return (
-    <section id="casos-de-exito" className="py-16 md:py-24 relative overflow-hidden bg-slate-50/50">
-      <div className="max-w-[1350px] mx-auto px-6 md:px-12 mb-12">
+    <section id="casos-de-exito" className="py-14 md:py-20 relative overflow-hidden bg-slate-50/50">
+      <div className="max-w-[1350px] mx-auto px-6 md:px-12 mb-10">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-xs mb-6">
             <div className="w-2.5 h-2.5 rounded-full bg-brand-highlight shadow-[0_0_8px_rgba(31,240,128,0.8)]"></div>
@@ -19,7 +19,7 @@ export const TestimonialsMarquee: React.FC = () => {
             Lo que dicen quienes escalaron con nosotros.
           </h2>
           <p className="text-brand-support text-base md:text-lg">
-            Empresas y marcas que transformaron su presencia digital y multiplicaron sus ventas con Gliro.
+            Empresas y marcas que transformaron su presencia digital, se hicieron más eficientes y redujeron sus costos con Gliro.
           </p>
         </div>
       </div>
@@ -27,7 +27,7 @@ export const TestimonialsMarquee: React.FC = () => {
       {/* Marquee Rows Container */}
       <div className="relative w-full overflow-hidden hover-pause">
         {/* Row 1 - Left to Right */}
-        <div className="flex overflow-hidden relative mb-6">
+        <div className="flex overflow-hidden relative">
           <div className="flex animate-marquee w-max gap-6">
             {row1.map((item, idx) => (
               <div
@@ -67,8 +67,8 @@ export const TestimonialsMarquee: React.FC = () => {
           </div>
         </div>
 
-        {/* Row 2 - Right to Left */}
-        <div className="flex overflow-hidden relative">
+        {/* Row 2 - Right to Left (Comentado temporalmente para hacerlo más compacto)
+        <div className="flex overflow-hidden relative mt-6">
           <div className="flex animate-marquee-reverse w-max gap-6">
             {row2.map((item, idx) => (
               <div
@@ -107,6 +107,7 @@ export const TestimonialsMarquee: React.FC = () => {
             ))}
           </div>
         </div>
+        */}
       </div>
     </section>
   );
