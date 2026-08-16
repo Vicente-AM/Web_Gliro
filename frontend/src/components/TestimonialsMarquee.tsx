@@ -90,9 +90,9 @@ export const TestimonialsMarquee: React.FC = () => {
 
       {/* Partnerships & Ecosystem Strip */}
       <div className="max-w-[1350px] mx-auto px-6 md:px-12">
-        <div className="p-8 md:p-10 rounded-[2.5rem] bg-white border border-slate-200/90 shadow-sm">
+        <div className="p-8 md:p-10 rounded-[2.5rem] bg-white border border-brand-highlight shadow-sm">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-brand-tertiary font-bold px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 inline-block mb-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-brand-tertiary font-bold px-3.5 py-1.5 rounded-full bg-slate-100 border border-brand-highlight inline-block mb-3">
               Partnerships & Ecosistema
             </span>
             {/*<h3 className="text-xl md:text-2xl font-poppins font-bold text-brand-tertiary">
