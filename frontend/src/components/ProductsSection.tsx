@@ -8,7 +8,7 @@ export const ProductsSection: React.FC = () => {
       <div className="max-w-[1350px] mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6 transform hover:scale-105 transition-transform duration-300">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-xs mb-6">
             <div className="w-2.5 h-2.5 rounded-full bg-brand-highlight shadow-[0_0_8px_rgba(31,240,128,0.8)]"></div>
             <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">Nuestros Productos</span>
           </div>
@@ -17,7 +17,7 @@ export const ProductsSection: React.FC = () => {
             Herramientas propias listas para impulsar tu negocio.
           </h2>
           <p className="text-brand-support text-base sm:text-lg">
-            Soluciones SaaS desarrolladas por Gliro que ya resuelven problemas concretos en empresas reales.
+            Soluciones SaaS desarrolladas por Gliro que ya resuelven problemas concretos en diferentes negocios.
           </p>
         </div>
 

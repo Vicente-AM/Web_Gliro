@@ -1,6 +1,6 @@
 import React from 'react';
 import { Zap, Puzzle, TrendingUp, Handshake } from 'lucide-react';
-import { whyChooseUs, clientLogos } from '../data/siteContent';
+import { whyChooseUs } from '../data/siteContent';
 
 export const WhyChooseUsSection: React.FC = () => {
   const getIcon = (iconName: string) => {
@@ -21,7 +21,7 @@ export const WhyChooseUsSection: React.FC = () => {
       <div className="max-w-[1350px] mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 border border-slate-200 shadow-sm mb-6 transform hover:scale-105 transition-transform duration-300">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 border border-slate-200 shadow-xs mb-6">
             <div className="w-2.5 h-2.5 rounded-full bg-brand-highlight shadow-[0_0_8px_rgba(31,240,128,0.8)]"></div>
             <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">¿Por qué elegirnos?</span>
           </div>
@@ -59,7 +59,7 @@ export const WhyChooseUsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Client Trust Strip */}
+        {/* Client Trust Strip (Comentado temporalmente)
         <div className="p-8 md:p-10 rounded-3xl bg-brand-tertiary text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl">
           <div className="text-center md:text-left">
             <span className="text-brand-highlight font-mono text-xs uppercase tracking-widest font-bold block mb-1">
@@ -81,6 +81,7 @@ export const WhyChooseUsSection: React.FC = () => {
             ))}
           </div>
         </div>
+        */}
       </div>
     </section>
   );
