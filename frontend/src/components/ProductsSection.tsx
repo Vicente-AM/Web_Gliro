@@ -8,8 +8,7 @@ export const ProductsSection: React.FC = () => {
       <div className="max-w-[1350px] mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-xs mb-6">
-            <div className="w-2.5 h-2.5 rounded-full bg-brand-highlight shadow-[0_0_8px_rgba(31,240,128,0.8)]"></div>
+          <div className="inline-flex items-center px-5 py-2 rounded-full bg-white border border-slate-200 shadow-xs mb-6">
             <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">Nuestros Productos</span>
           </div>
 

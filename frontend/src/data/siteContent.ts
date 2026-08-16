@@ -12,9 +12,9 @@ export const siteBrand = {
 };
 
 export const heroStats = [
-  { value: "3", label: "Productos propios en producción" },
-  { value: "+400", label: "Palabras clave/día monitoreadas en Licitracker" },
-  { value: "ISO 9001", label: "Trazabilidad completa con Traza" },
+  { value: "3", label: "Nuestros servicios SaaS ya en producción" },
+  { value: "+20", label: "Clientes ya confian en nuestros servicios" },
+  { value: "Agregar", label: "Dato importante" },
 ];
 
 export const whyChooseUs = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { siteBrand, heroStats } from '../data/siteContent';
 
 export const Hero: React.FC = () => {
@@ -27,21 +27,21 @@ export const Hero: React.FC = () => {
       {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center text-center animate-fade-in-up">
         {/* Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-widest mb-8 hover:bg-white/20 transition-all duration-300">
+        {/*<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-widest mb-8 hover:bg-white/20 transition-all duration-300">
           <Sparkles className="w-3.5 h-3.5 text-brand-highlight animate-pulse" />
           <span>Software · Automatización · IA</span>
-        </div>
+        </div>*/}
 
         {/* Title */}
         <div className="space-y-6 max-w-4xl mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-[5rem] font-poppins font-black text-white tracking-tight leading-[1.08] drop-shadow-2xl text-balance">
-            Innovación y automatización <br className="hidden sm:inline" />
+          <h1 className="text-4xl sm:text-6xl lg:text-[5rem] font-poppins font-black text-white tracking-tight leading-[1.14] drop-shadow-2xl text-balance">
+            Innovación y automatización a tu medida <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-brand-highlight">
-              a tu medida
+
             </span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed font-light text-balance">
-            Desarrollamos software personalizado, automatizamos procesos con IA y creamos soluciones SaaS que ahorran tiempo y dinero a empresas en Chile.
+            Desarrollamos software personalizado, automatizamos procesos con IA y creamos soluciones SaaS que ahorran tiempo y dinero a nuestros clientes.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
             "
           >
             <MessageCircle className="w-5 h-5 fill-current" />
-            <span>Conversemos por WhatsApp</span>
+            <span>Agenda con nosotros</span>
           </a>
           <a
             href="#productos"
