@@ -35,7 +35,7 @@ export const PortfolioSection: React.FC = () => {
       <div className="w-full flex flex-col gap-8 md:gap-12">
         {/* Section Header */}
         <div className="max-w-[1350px] mx-auto px-6 md:px-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center px-5 py-2 rounded-full bg-slate-50 border border-slate-200 shadow-xs mb-6">
+          <div className="inline-flex items-center px-5 py-2 rounded-full bg-slate-50 border border-brand-highlight shadow-xs mb-6">
             <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">Portafolio</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-poppins font-extrabold text-brand-tertiary leading-[1.1] tracking-tight">

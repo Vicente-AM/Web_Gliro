@@ -67,7 +67,7 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Value propositions */}
           <div className="max-w-xl">
-            <div className="inline-flex items-center px-5 py-2 rounded-full bg-slate-50 border border-slate-200 shadow-xs mb-6">
+            <div className="inline-flex items-center px-5 py-2 rounded-full bg-slate-50 border border-brand-highlight shadow-xs mb-6">
               <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">Contacto</span>
             </div>
 
