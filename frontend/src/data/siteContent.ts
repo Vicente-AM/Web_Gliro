@@ -59,7 +59,7 @@ export const productsData = [
     status: "En operación · Usado por DZF y Cardiotec",
     statusType: "active",
     url: "https://traza.gliro.cl",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    image: "/media/Logo_Traza.png",
   },
   {
     id: "broker-ia",

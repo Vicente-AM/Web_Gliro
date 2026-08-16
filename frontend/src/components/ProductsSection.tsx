@@ -13,10 +13,10 @@ export const ProductsSection: React.FC = () => {
           </div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-poppins font-black text-brand-tertiary leading-[1.15] tracking-tight mb-4">
-            Herramientas propias listas para impulsar tu negocio.
+            Herramientas de nuestra propiedad listas para impulsar tu negocio.
           </h2>
           <p className="text-brand-support text-base sm:text-lg">
-            Soluciones SaaS desarrolladas por Gliro que ya resuelven problemas concretos en diferentes negocios.
+            Soluciones SaaS desarrolladas por Gliro que ya resuelven problemas concretos en diferentes áreas.
           </p>
         </div>
 

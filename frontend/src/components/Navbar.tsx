@@ -44,25 +44,19 @@ export const Navbar: React.FC = () => {
           }
         `}
       >
-        {/* Brand Logo in Poppins */}
+        {/* Brand Logo */}
         <a
           href="#inicio"
-          className="flex items-center gap-1 group cursor-pointer focus:outline-none select-none transition-all duration-300"
+          className="flex items-center ml-2 group cursor-pointer focus:outline-none select-none transition-all duration-300"
         >
-          <span
+          <img
+            src="/media/Logo Gliro N SF.png"
+            alt="Gliro"
             className={`
-              font-poppins font-black tracking-tight text-brand-tertiary group-hover:opacity-90 transition-all duration-300
-              ${scrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'}
+              w-auto object-contain transition-all duration-300 group-hover:opacity-90 scale-240
+              ${scrolled ? 'h-7 md:h-8 max-w-[120px]' : 'h-8 md:h-10 max-w-[140px]'}
             `}
-          >
-            Gliro
-          </span>
-          <span
-            className={`
-              rounded-full bg-brand-highlight inline-block shadow-[0_0_10px_rgba(31,240,128,0.8)] group-hover:scale-125 transition-all duration-300
-              ${scrolled ? 'w-2 h-2' : 'w-2.5 h-2.5'}
-            `}
-          ></span>
+          />
         </a>
 
         {/* Desktop Links */}
