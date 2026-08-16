@@ -53,14 +53,9 @@ export const TestimonialsMarquee: React.FC = () => {
                   “{item.text}”
                 </p>
 
-                <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-brand-tertiary text-brand-highlight font-poppins font-bold text-xs flex items-center justify-center shadow-inner">
-                    {item.avatar}
-                  </div>
-                  <div>
-                    <p className="font-poppins font-bold text-brand-tertiary text-sm">{item.name}</p>
-                    <p className="text-xs text-brand-support font-medium">{item.company} • {item.role}</p>
-                  </div>
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="font-poppins font-bold text-brand-tertiary text-sm">{item.name}</p>
+                  <p className="text-xs text-brand-support font-medium">{item.company} • {item.role}</p>
                 </div>
               </div>
             ))}
@@ -94,14 +89,9 @@ export const TestimonialsMarquee: React.FC = () => {
                   “{item.text}”
                 </p>
 
-                <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-brand-tertiary text-brand-highlight font-poppins font-bold text-xs flex items-center justify-center shadow-inner">
-                    {item.avatar}
-                  </div>
-                  <div>
-                    <p className="font-poppins font-bold text-brand-tertiary text-sm">{item.name}</p>
-                    <p className="text-xs text-brand-support font-medium">{item.company} • {item.role}</p>
-                  </div>
+                <div className="pt-2 border-t border-slate-100">
+                  <p className="font-poppins font-bold text-brand-tertiary text-sm">{item.name}</p>
+                  <p className="text-xs text-brand-support font-medium">{item.company} • {item.role}</p>
                 </div>
               </div>
             ))}
