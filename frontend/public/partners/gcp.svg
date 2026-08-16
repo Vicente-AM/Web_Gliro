@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="100%" height="100%">
+  <g transform="translate(10, 10)">
+    <!-- Google Cloud Official Isometric Cloud Symbol -->
+    <g transform="translate(0, 0)">
+      <!-- Blue section -->
+      <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4" transform="scale(1.7)"/>
+      <path d="M14.5 13.5l4.8 4.8c1.2-1 2-2.5 2-4.3 0-2.8-2.2-5-5-5-1.1 0-2.1.4-2.9 1l1.1 3.5z" fill="#EA4335" transform="scale(1.7)"/>
+      <path d="M6 14c0-1.8 1-3.3 2.5-4.1L6.3 6.6C4.4 7.7 3 9.7 3 12c0 1.1.3 2.1.8 3h2.6c-.3-.3-.4-.6-.4-1z" fill="#FBBC05" transform="scale(1.7)"/>
+      <path d="M19 20H6c-3.3 0-6-2.7-6-6 0-2.5 1.5-4.6 3.7-5.5L5.8 11C4.7 11.5 4 12.7 4 14c0 2.2 1.8 4 4 4h11c1.7 0 3-1.3 3-3 0-1.2-.7-2.2-1.7-2.7l1.7-2.3c1.9 1 3 3 3 5 0 2.8-2.2 5-5 5z" fill="#34A853" transform="scale(1.7)"/>
+    </g>
+    <!-- Text: Google Cloud -->
+    <text x="52" y="24" font-family="'Poppins', 'Segoe UI', sans-serif" font-weight="700" font-size="20" fill="#282c2f">Google <tspan fill="#4285F4">Cloud</tspan></text>
+    <text x="53" y="36" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="8.5" fill="#636160" letter-spacing="1.2">PLATFORM (GCP)</text>
+  </g>
+</svg>

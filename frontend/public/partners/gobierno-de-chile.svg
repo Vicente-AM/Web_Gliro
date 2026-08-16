@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="100%" height="100%">
+  <g transform="translate(10, 10)">
+    <!-- Official Blue & Red Block with Star -->
+    <rect x="0" y="4" width="16" height="34" rx="2" fill="#003882"/>
+    <rect x="16" y="4" width="16" height="34" rx="2" fill="#C8102E"/>
+    <polygon points="8,14 9.5,18.5 14,18.5 10.5,21 12,25.5 8,22.8 4,25.5 5.5,21 2,18.5 6.5,18.5" fill="#FFFFFF"/>
+    <!-- Typography -->
+    <text x="44" y="21" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="900" font-size="16" fill="#003882" letter-spacing="0.4">Gobierno</text>
+    <text x="44" y="36" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="900" font-size="16" fill="#C8102E" letter-spacing="0.4">de Chile</text>
+  </g>
+</svg>
