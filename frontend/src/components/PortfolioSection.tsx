@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, Pause, Play, ExternalLink, X, Grid } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Pause, Play, ExternalLink, X } from 'lucide-react';
 import { portfolioData } from '../data/siteContent';
 
 export const PortfolioSection: React.FC = () => {
@@ -135,7 +135,7 @@ export const PortfolioSection: React.FC = () => {
         </div>
 
         {/* Modal Opener Button */}
-        <div className="flex justify-center px-4">
+        {/*<div className="flex justify-center px-4">
           <button
             type="button"
             onClick={() => setModalOpen(true)}
@@ -148,7 +148,7 @@ export const PortfolioSection: React.FC = () => {
             <Grid className="w-4 h-4" />
             Ver todos los proyectos
           </button>
-        </div>
+        </div>*/}
       </div>
 
       {/* Full Projects Modal / Gallery */}

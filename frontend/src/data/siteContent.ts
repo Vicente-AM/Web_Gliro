@@ -56,7 +56,7 @@ export const productsData = [
     tag: "Certificadoras · ISO 9001",
     title: "Traza",
     description: "Gestión documental y trazabilidad integral: cotización → aprobación → orden de trabajo → inspección → evidencia fotográfica → cobranza → archivo, todo auditado con fecha y responsable.",
-    status: "En operación · Usado por DZF y Cardiotec",
+    status: "En operación",
     statusType: "active",
     url: "https://traza.gliro.cl",
     image: "/media/Logo_Traza.png",
@@ -157,7 +157,7 @@ export const portfolioData: ProjectItem[] = [
     results: "Calificación automática y agendamiento 24/7",
     url: "https://gliro.cl/contacto/",
   },
-  {
+  /*{
     id: 6,
     title: "Inversiones Sunset & Medplan",
     category: "Automatización de Procesos",
@@ -165,7 +165,7 @@ export const portfolioData: ProjectItem[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
     results: "Flujos de integración tecnológica y optimización de datos",
     url: "https://gliro.cl/contacto/",
-  },
+  },*/
 ];
 
 export const clientLogos = [

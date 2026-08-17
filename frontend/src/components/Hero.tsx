@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
             className="
               bg-brand-highlight text-brand-tertiary px-8 py-4 rounded-full font-poppins font-bold 
               hover:bg-white hover:scale-105 active:scale-95 
-              transition-all duration-300 shadow-xl shadow-brand-highlight/20 w-full sm:w-auto min-w-[240px] text-center flex items-center justify-center gap-2.5
+              transition-all duration-300 shadow-lg w-full sm:w-auto min-w-[240px] text-center flex items-center justify-center gap-2.5
             "
           >
             <MessageCircle className="w-5 h-5 fill-current" />
