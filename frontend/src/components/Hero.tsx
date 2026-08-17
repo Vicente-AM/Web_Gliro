@@ -20,25 +20,14 @@ export const Hero: React.FC = () => {
         />
         <div className="absolute inset-0 bg-brand-tertiary/80 backdrop-blur-[2px]"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-brand-tertiary/70 to-black/50"></div>
-        {/* Glow Accent Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-highlight/20 rounded-full blur-[130px] pointer-events-none"></div>
       </div>
 
       {/* Hero Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center text-center animate-fade-in-up">
-        {/* Eyebrow Badge */}
-        {/*<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-widest mb-8 hover:bg-white/20 transition-all duration-300">
-          <Sparkles className="w-3.5 h-3.5 text-brand-highlight animate-pulse" />
-          <span>Software · Automatización · IA</span>
-        </div>*/}
-
         {/* Title */}
         <div className="space-y-6 max-w-4xl mb-8">
           <h1 className="text-4xl sm:text-6xl lg:text-[5rem] font-poppins font-black text-white tracking-tight leading-[1.14] drop-shadow-2xl text-balance">
-            Innovación y automatización a tu medida <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-brand-highlight">
-
-            </span>
+            Innovación y automatización a tu medida
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed font-light text-balance">
             Desarrollamos software personalizado, automatizamos procesos con IA y creamos soluciones SaaS que ahorran tiempo y dinero a nuestros clientes.
