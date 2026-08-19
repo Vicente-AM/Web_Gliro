@@ -139,7 +139,7 @@ export const portfolioData: ProjectItem[] = [
     categoryKey: "web",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
     results: "Gestión documental Traza + ERP integral de operaciones",
-    url: "https://gliro.cl/contacto/",
+    url: "",
   },
   {
     id: 4,
@@ -148,7 +148,7 @@ export const portfolioData: ProjectItem[] = [
     categoryKey: "corporate",
     image: "",
     results: "Automatizaciones personalizadas para procesos repetitivos y toma de decisiones basada en datos",
-    url: "https://gliro.cl/contacto/",
+    url: "",
   },
   {
     id: 5,
@@ -157,7 +157,7 @@ export const portfolioData: ProjectItem[] = [
     categoryKey: "ads",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
     results: "Calificación automática y agendamiento 24/7",
-    url: "https://gliro.cl/contacto/",
+    url: "",
   },
   /*{
     id: 6,

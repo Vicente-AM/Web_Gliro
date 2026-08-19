@@ -67,15 +67,17 @@ export const PortfolioSection: React.FC = () => {
                     <span className="inline-flex items-center max-w-[calc(100%-110px)] sm:max-w-none px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-brand-highlight text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider truncate sm:whitespace-normal">
                       {project.category}
                     </span>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-brand-highlight hover:text-brand-tertiary transition-all duration-300 text-xs sm:text-sm font-semibold shrink-0"
-                    >
-                      <span>Ver Sitio</span>
-                      <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </a>
+                    {Boolean(project.url && project.url.trim()) && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-brand-highlight hover:text-brand-tertiary transition-all duration-300 text-xs sm:text-sm font-semibold shrink-0"
+                      >
+                        <span>Ver Sitio</span>
+                        <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </a>
+                    )}
                   </div>
 
                   <div className="max-w-3xl space-y-2 sm:space-y-3">
