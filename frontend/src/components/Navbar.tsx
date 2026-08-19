@@ -33,10 +33,10 @@ export const Navbar: React.FC = () => {
       <nav
         aria-label="Navegación principal"
         className={`
-          pointer-events-auto w-full
+          relative pointer-events-auto w-full
           transition-all duration-300 ease-in-out
           flex items-center justify-between
-          rounded-full
+          rounded-full min-h-[52px] md:min-h-0
           ${
             scrolled
               ? 'max-w-[1080px] px-4 py-2 md:px-6 md:py-2 bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-900/5'
@@ -44,17 +44,22 @@ export const Navbar: React.FC = () => {
           }
         `}
       >
-        {/* Brand Logo */}
+        {/* Brand Logo - Centered on Mobile, Left-aligned on Desktop */}
         <a
           href="#inicio"
-          className="flex items-center ml-2 md:ml-4 group cursor-pointer focus:outline-none select-none transition-all duration-300"
+          className="
+            flex items-center group cursor-pointer focus:outline-none select-none transition-all duration-300
+            max-lg:absolute max-lg:left-1/2 max-lg:-translate-x-1/2
+            lg:static lg:ml-4
+          "
         >
           <img
             src="/media/Logo Gliro N SF.png"
             alt="Gliro"
             className={`
-              w-auto object-contain transition-all duration-300 group-hover:opacity-90 scale-180 md:scale-240
-              ${scrolled ? 'h-6 md:h-8 max-w-[110px] md:max-w-[120px]' : 'h-7 md:h-10 max-w-[120px] md:max-w-[140px]'}
+              w-auto object-contain transition-all duration-300 group-hover:opacity-90
+              scale-220 md:scale-240
+              ${scrolled ? 'h-7 sm:h-7.5 md:h-8 max-w-[130px] md:max-w-[120px]' : 'h-8 sm:h-9 md:h-10 max-w-[140px] md:max-w-[140px]'}
             `}
           />
         </a>
@@ -94,11 +99,11 @@ export const Navbar: React.FC = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Positioned to the right */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-full text-brand-tertiary hover:bg-slate-100 focus:outline-none cursor-pointer"
+          className="lg:hidden ml-auto p-2 rounded-full text-brand-tertiary hover:bg-slate-100 focus:outline-none cursor-pointer"
           aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
