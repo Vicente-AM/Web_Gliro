@@ -2,7 +2,11 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { siteBrand } from '../data/siteContent';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenPrivacy?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy }) => {
   return (
     <footer className="bg-brand-tertiary text-white pt-14 md:pt-20 pb-10 mx-2.5 md:mx-4 mb-4 rounded-[2.5rem] border border-slate-800/80">
       <div className="max-w-[1350px] mx-auto px-6 md:px-12 text-center md:text-left">
@@ -130,8 +134,16 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm text-slate-500">
           <p>© {new Date().getFullYear()} Gliro. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <a href="#contacto" className="hover:text-white transition-colors">Política de Privacidad</a>
-            <a href="#contacto" className="hover:text-white transition-colors">Términos del Servicio</a>
+            <button
+              type="button"
+              onClick={onOpenPrivacy}
+              className="hover:text-white transition-colors cursor-pointer text-slate-400 hover:text-brand-highlight"
+            >
+              Política de Privacidad
+            </button>
+            <a href="#contacto" className="hover:text-white transition-colors text-slate-400">
+              Términos del Servicio
+            </a>
           </div>
         </div>
       </div>

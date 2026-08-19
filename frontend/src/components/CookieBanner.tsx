@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-export const CookieBanner: React.FC = () => {
+interface CookieBannerProps {
+  onOpenPrivacy?: () => void;
+}
+
+export const CookieBanner: React.FC<CookieBannerProps> = ({ onOpenPrivacy }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,7 +38,14 @@ export const CookieBanner: React.FC = () => {
           Tu privacidad nos importa
         </h2>
         <p className="text-xs md:text-sm text-brand-support leading-relaxed">
-          Utilizamos analítica para optimizar la experiencia de navegación en nuestro sitio. Puedes aceptar o configurar tus preferencias.
+          Utilizamos analítica para optimizar la experiencia en nuestro sitio. Conoce más en nuestra{' '}
+          <button
+            type="button"
+            onClick={onOpenPrivacy}
+            className="text-brand-tertiary font-bold underline hover:text-brand-highlight cursor-pointer"
+          >
+            Política de Privacidad
+          </button>.
         </p>
       </div>
 

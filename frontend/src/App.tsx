@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
@@ -12,8 +12,22 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CookieBanner } from './components/CookieBanner';
+import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
 
 export const App: React.FC = () => {
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#privacidad') {
+        setPrivacyModalOpen(true);
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-brand-secondary selection:bg-brand-highlight selection:text-brand-tertiary relative isolate">
       {/* Global Subtle Background Grid & Ambient Glows */}
@@ -37,10 +51,21 @@ export const App: React.FC = () => {
         <TestimonialsMarquee />
         <FaqAccordion />
         <ContactSection />
-        <Footer />
+        <Footer onOpenPrivacy={() => setPrivacyModalOpen(true)} />
         <FloatingWhatsApp />
-        <CookieBanner />
+        <CookieBanner onOpenPrivacy={() => setPrivacyModalOpen(true)} />
       </div>
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        isOpen={privacyModalOpen}
+        onClose={() => {
+          setPrivacyModalOpen(false);
+          if (window.location.hash === '#privacidad') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }}
+      />
     </div>
   );
 };

@@ -256,7 +256,7 @@ export const methodologySteps: MethodologyStep[] = [
 export const faqData: FaqItem[] = [
   {
     question: "¿Qué tipo de soluciones desarrolla Gliro?",
-    answer: "Desarrollamos software a medida (web, móvil, ERPs internos), soluciones SaaS escalables, integraciones con Inteligencia Artificial y herramientas de automatización de procesos (RPA y workflows en la nube).",
+    answer: "Desarrollamos tu software bajo tus requerimientos (web, móvil, ERPs internos, etc.), soluciones SaaS escalables, integraciones con Inteligencia Artificial y herramientas de automatización de procesos (RPA y workflows en la nube).",
   },
   {
     question: "¿Cuáles son los Saas que dispone Gliro?",
