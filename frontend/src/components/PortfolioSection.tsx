@@ -63,8 +63,8 @@ export const PortfolioSection: React.FC = () => {
 
                 {/* Info Overlay */}
                 <div className="absolute inset-0 p-5 sm:p-8 md:p-14 pb-20 sm:pb-24 md:pb-14 flex flex-col justify-between z-20">
-                  <div className="flex justify-between items-start gap-3">
-                    <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-brand-highlight text-xs md:text-sm font-semibold uppercase tracking-wider">
+                  <div className="flex justify-between items-start gap-2.5 sm:gap-3">
+                    <span className="inline-flex items-center max-w-[calc(100%-110px)] sm:max-w-none px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-brand-highlight text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider truncate sm:whitespace-normal">
                       {project.category}
                     </span>
                     <a

@@ -142,7 +142,7 @@ export const portfolioData: ProjectItem[] = [
   {
     id: 4,
     title: "Automatizaciones RPA & DPA",
-    category: "Automatización de Procesos · Transformación Digital",
+    category: "RPA · Transformación Digital",
     categoryKey: "corporate",
     image: "",
     results: "Automatizaciones personalizadas para procesos repetitivos y toma de decisiones basada en datos",
