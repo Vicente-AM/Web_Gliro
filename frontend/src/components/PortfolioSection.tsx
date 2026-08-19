@@ -44,8 +44,8 @@ export const PortfolioSection: React.FC = () => {
         </div>
 
         {/* Big Showcase Carousel */}
-        <div className="w-full relative min-h-[460px] md:h-[70vh] max-h-[750px] flex items-center justify-center overflow-hidden px-4 md:px-10">
-          <div className="relative w-full max-w-[1350px] h-full rounded-[2.5rem] overflow-hidden shadow-2xl bg-brand-tertiary">
+        <div className="w-full relative h-[480px] sm:h-[540px] md:h-[70vh] max-h-[750px] flex items-center justify-center overflow-hidden px-4 md:px-10">
+          <div className="relative w-full max-w-[1350px] h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl bg-brand-tertiary">
             {featuredProjects.map((project, index) => (
               <div
                 key={project.id}
@@ -59,32 +59,32 @@ export const PortfolioSection: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/30"></div>
 
                 {/* Info Overlay */}
-                <div className="absolute inset-0 p-6 md:p-14 flex flex-col justify-between z-20">
-                  <div className="flex justify-between items-start">
-                    <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-brand-highlight text-xs md:text-sm font-semibold uppercase tracking-wider">
+                <div className="absolute inset-0 p-5 sm:p-8 md:p-14 pb-20 sm:pb-24 md:pb-14 flex flex-col justify-between z-20">
+                  <div className="flex justify-between items-start gap-3">
+                    <span className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-brand-highlight text-xs md:text-sm font-semibold uppercase tracking-wider">
                       {project.category}
                     </span>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-brand-highlight hover:text-brand-tertiary transition-all duration-300 text-sm font-semibold"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-brand-highlight hover:text-brand-tertiary transition-all duration-300 text-xs sm:text-sm font-semibold shrink-0"
                     >
                       <span>Ver Sitio</span>
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </a>
                   </div>
 
-                  <div className="max-w-3xl space-y-3">
-                    <h3 className="text-2xl sm:text-4xl md:text-5xl font-poppins font-black text-white leading-tight drop-shadow-md">
+                  <div className="max-w-3xl space-y-2 sm:space-y-3">
+                    <h3 className="text-xl sm:text-3xl md:text-5xl font-poppins font-black text-white leading-tight drop-shadow-md">
                       {project.title}
                     </h3>
-                    <p className="text-brand-highlight text-base md:text-xl font-bold flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-brand-highlight inline-block animate-ping"></span>
-                      {project.results}
+                    <p className="text-brand-highlight text-xs sm:text-base md:text-xl font-bold flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-brand-highlight inline-block animate-ping shrink-0"></span>
+                      <span>{project.results}</span>
                     </p>
                   </div>
                 </div>
