@@ -95,7 +95,7 @@ export const solutionsData: ServiceItem[] = [
     tag: "Eficiencia Operativa",
     title: "Automatización & IA",
     description: "Implementación de RPA, bots inteligentes y orquestación de procesos en la nube para reducir costos y eliminar tareas administrativas manuales.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.pexels.com/photos/8849288/pexels-photo-8849288.jpeg",
   },
   {
     id: "idi-projects",
