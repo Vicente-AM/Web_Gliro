@@ -286,15 +286,26 @@ export const Scanner: React.FC<ScannerProps> = ({
     let targetMouseActive = 0;
 
     const onMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      targetMouse = [(e.clientX - rect.left) / rect.width, 1.0 - (e.clientY - rect.top) / rect.height];
-      targetMouseActive = 1;
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if (inside) {
+        targetMouse = [
+          Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)),
+          Math.max(0, Math.min(1, 1.0 - (e.clientY - rect.top) / rect.height))
+        ];
+        targetMouseActive = 1;
+      } else {
+        targetMouseActive = 0;
+      }
     };
-    const onMouseLeave = () => {
-      targetMouseActive = 0;
-    };
-    canvas.addEventListener('mousemove', onMouseMove);
-    canvas.addEventListener('mouseleave', onMouseLeave);
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
 
     let raf = 0;
     let isVisible = true;
@@ -307,12 +318,12 @@ export const Scanner: React.FC<ScannerProps> = ({
       if (!mouseEnabledRef.current) {
         targetMouseActive = 0;
       }
-      currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
-      currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
+      currentMouse[0] += 0.08 * (targetMouse[0] - currentMouse[0]);
+      currentMouse[1] += 0.08 * (targetMouse[1] - currentMouse[1]);
       const m = (program.uniforms.uMouse as { value: Float32Array }).value;
       m[0] = currentMouse[0];
       m[1] = currentMouse[1];
-      mouseActive += 0.05 * (targetMouseActive - mouseActive);
+      mouseActive += 0.08 * (targetMouseActive - mouseActive);
       (program.uniforms.uMouseActive as { value: number }).value = mouseActive;
 
       renderer.render({ scene: mesh });
@@ -351,8 +362,7 @@ export const Scanner: React.FC<ScannerProps> = ({
       ro.disconnect();
       io.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
-      canvas.removeEventListener('mousemove', onMouseMove);
-      canvas.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener('mousemove', onMouseMove);
       ctxMap.delete(container);
       try {
         container.removeChild(canvas);

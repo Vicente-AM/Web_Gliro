@@ -282,9 +282,17 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
     const ctn = containerRef.current;
     if (!ctn) return;
     const rect = ctn.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = 1 - (e.clientY - rect.top) / rect.height;
-    mouseRef.current = { x, y };
+    const inside =
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom;
+
+    if (inside) {
+      const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const y = Math.max(0, Math.min(1, 1 - (e.clientY - rect.top) / rect.height));
+      mouseRef.current = { x, y };
+    }
   }, []);
 
   useEffect(() => {
@@ -385,12 +393,12 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
     rafRef.current = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
 
-    if (mouseReact) ctn.addEventListener('mousemove', handleMouseMove);
+    if (mouseReact) window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       resizeObserver.disconnect();
-      if (mouseReact) ctn.removeEventListener('mousemove', handleMouseMove);
+      if (mouseReact) window.removeEventListener('mousemove', handleMouseMove);
       if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
       loadAnimationStartRef.current = 0;
