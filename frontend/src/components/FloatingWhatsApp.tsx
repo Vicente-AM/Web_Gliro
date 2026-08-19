@@ -1,9 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { siteBrand } from '../data/siteContent';
 
 export const FloatingWhatsApp: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      const heroEl = document.getElementById('inicio');
+      const footerEl = document.querySelector('footer');
+
+      let inHero = false;
+      let inFooter = false;
+
+      if (heroEl) {
+        const heroRect = heroEl.getBoundingClientRect();
+        // If hero occupies view or user is near top
+        inHero = heroRect.bottom > 200 && window.scrollY < 400;
+      } else {
+        inHero = window.scrollY < 300;
+      }
+
+      if (footerEl) {
+        const footerRect = footerEl.getBoundingClientRect();
+        // If footer is visible in the viewport
+        inFooter = footerRect.top < window.innerHeight - 80;
+      }
+
+      setVisible(!inHero && !inFooter);
+    };
+
+    handleVisibility();
+    window.addEventListener('scroll', handleVisibility, { passive: true });
+    window.addEventListener('resize', handleVisibility);
+
+    return () => {
+      window.removeEventListener('scroll', handleVisibility);
+      window.removeEventListener('resize', handleVisibility);
+    };
+  }, []);
+
   return (
-    <aside aria-label="Contacto por WhatsApp" className="fixed bottom-6 right-6 z-50 group">
+    <aside
+      aria-label="Contacto por WhatsApp"
+      className={`
+        fixed bottom-6 right-6 z-50 group transition-all duration-500 ease-in-out
+        ${visible ? 'opacity-100 scale-100 pointer-events-auto translate-y-0' : 'opacity-0 scale-75 pointer-events-none translate-y-6'}
+      `}
+    >
       {/* Outer Pulse Animation Ring */}
       <span className="absolute inset-0 rounded-full bg-emerald-500 opacity-60 animate-ping-slow pointer-events-none"></span>
 
