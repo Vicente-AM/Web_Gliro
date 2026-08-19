@@ -41,7 +41,7 @@ export const TestimonialsMarquee: React.FC = () => {
             <span className="text-brand-tertiary text-xs font-bold uppercase tracking-widest">Casos de Éxito</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-poppins font-extrabold text-brand-tertiary leading-[1.1] tracking-tight mb-4">
-            Lo que dicen quienes escalaron con nosotros.
+            Lo que dicen quienes se potenciaron con nosotros.
           </h2>
           <p className="text-brand-support text-base md:text-lg">
             Empresas y marcas que transformaron su presencia digital, se hicieron más eficientes y redujeron sus costos con Gliro.

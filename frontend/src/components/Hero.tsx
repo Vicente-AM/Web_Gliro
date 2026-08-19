@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { siteBrand, heroStats } from '../data/siteContent';
+import Scanner from './Scanner';
 
 export const Hero: React.FC = () => {
   return (
@@ -11,15 +12,40 @@ export const Hero: React.FC = () => {
         overflow-hidden flex flex-col justify-center items-center shadow-2xl ring-1 ring-slate-900/10 group py-16 md:py-20
       "
     >
-      {/* Background Image with Dark Vignette and Gradient */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80"
-          alt="Gliro Software e Innovación"
-          className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[12s] ease-out"
+      {/* Interactive WebGL Scanner Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-brand-tertiary">
+        <Scanner
+          color1="#1ff080"
+          color2="#636160"
+          color3="#FFFFFF"
+          speed={0.3}
+          sweepSpeed={0.5}
+          sweepWidth={1}
+          sweepFalloff={6}
+          scale={1.5}
+          frequency={2}
+          ripple={0.22}
+          bandDensity={14}
+          lineSharpness={2.5}
+          glow={0.22}
+          scanDirection="vertical"
+          colorSpread={0.5}
+          brightness={1}
+          contrast={1.5}
+          softness={1.4}
+          vignette={0.3}
+          scanline
+          grain
+          grainIntensity={0.2}
+          opacity={1}
+          mouseInteraction
+          mouseRadius={0.5}
+          mouseStrength={0.5}
+          className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-brand-tertiary/80 backdrop-blur-[2px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-brand-tertiary/70 to-black/50"></div>
+        {/* Subtle dark vignette overlay for optimal text readability */}
+        <div className="absolute inset-0 bg-brand-tertiary/50 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35 pointer-events-none"></div>
       </div>
 
       {/* Hero Content */}

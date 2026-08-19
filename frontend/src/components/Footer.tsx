@@ -9,10 +9,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Brand & Socials */}
           <div className="lg:col-span-1 flex flex-col items-center md:items-start">
-            <a href="#inicio" className="flex items-center gap-2 mb-6 group">
-              <span className="font-poppins font-black text-3xl tracking-tight text-white flex items-center">
-                Gliro<span className="w-2.5 h-2.5 rounded-full bg-brand-highlight inline-block ml-0.5 shadow-[0_0_10px_rgba(31,240,128,0.8)]"></span>
-              </span>
+            <a href="#inicio" className="flex gap-2 mb-6 ml-10 group">
+              <img src="/media/Logo Gliro SF.png" alt="Gliro Logo" className="h-8 object-contain scale-400" />
             </a>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               Innovación en software y automatización con IA. Transformamos procesos en soluciones inteligentes y productos SaaS de alto impacto.
@@ -97,7 +95,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-poppins font-bold text-white mb-6 tracking-wide text-base">Contacto</h4>
             <ul className="space-y-4 text-sm text-slate-400 flex flex-col items-center md:items-start">
               <li>
-                <span className="block text-slate-500 text-xs mb-0.5">WhatsApp Oficial</span>
+                <span className="block text-slate-500 text-xs mb-0.5">WhatsApp</span>
                 <a
                   href={siteBrand.whatsappUrl}
                   target="_blank"

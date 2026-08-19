@@ -12,9 +12,9 @@ export const siteBrand = {
 };
 
 export const heroStats = [
-  { value: "3", label: "Nuestros servicios SaaS ya en producción" },
-  { value: "+20", label: "Clientes ya confian en nuestros servicios" },
-  { value: "Agregar", label: "Dato importante" },
+  { value: "16", label: "Nuestros servicios ya en producción" },
+  { value: "+40", label: "Clientes ya confian en nuestros servicios" },
+  { value: "2020", label: "Año de inicio de operaciones" },
 ];
 
 export const whyChooseUs = [
@@ -127,12 +127,12 @@ export const portfolioData: ProjectItem[] = [
     category: "SaaS · Certificación",
     categoryKey: "corporate",
     image: "https://kaizencertificacion.com/wp-content/uploads/2021/12/mantener-el-certificado-ISO-9001.jpg",
-    results: "Trazabilidad 100% auditable para DZF y Cardiotec",
+    results: "Trazabilidad 100% auditable",
     url: "https://traza.gliro.cl",
   },
   {
     id: 3,
-    title: "Cardiotec - ERP integration & Gestión Médica",
+    title: "ERP integration & Gestión operativa",
     category: "Software Development · Salud",
     categoryKey: "web",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
@@ -141,11 +141,11 @@ export const portfolioData: ProjectItem[] = [
   },
   {
     id: 4,
-    title: "DZF Certificadora - Auditorías y Calidad",
-    category: "Transformación Digital · ISO",
+    title: "Automatizaciones RPA & DPA",
+    category: "Automatización de Procesos · Transformación Digital",
     categoryKey: "corporate",
     image: "",
-    results: "Inspecciones en terreno con evidencia fotográfica en la nube",
+    results: "Automatizaciones personalizadas para procesos repetitivos y toma de decisiones basada en datos",
     url: "https://gliro.cl/contacto/",
   },
   {
