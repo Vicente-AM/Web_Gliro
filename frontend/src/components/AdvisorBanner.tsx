@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { siteBrand } from '../data/siteContent';
+import FaultyTerminal from './FaultyTerminal';
 
 export const AdvisorBanner: React.FC = () => {
   return (
@@ -9,12 +10,36 @@ export const AdvisorBanner: React.FC = () => {
         <div
           className="
             relative rounded-[2.5rem] overflow-hidden 
-            bg-brand-secondary text-white 
+            bg-brand-tertiary text-white 
             border border-slate-700/50 shadow-2xl
           "
         >
-          {/* Subtle Ambient Light */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-highlight/20 rounded-full blur-[100px] pointer-events-none"></div>
+          {/* Interactive WebGL FaultyTerminal Background */}
+          <div className="absolute inset-0 z-0 overflow-hidden bg-brand-tertiary">
+            <FaultyTerminal
+              scale={2}
+              gridMul={[2, 1]}
+              digitSize={1}
+              timeScale={0.5}
+              pause={false}
+              scanlineIntensity={0.6}
+              glitchAmount={1}
+              flickerAmount={1}
+              noiseAmp={1}
+              chromaticAberration={0}
+              dither={0}
+              curvature={0.15}
+              tint="#1ff080"
+              mouseReact
+              mouseStrength={0.5}
+              pageLoadAnimation
+              brightness={0.8}
+              className="w-full h-full"
+            />
+            {/* Dark overlay for optimal text contrast */}
+            <div className="absolute inset-0 bg-brand-tertiary/70 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-brand-tertiary/60 to-black/80 pointer-events-none"></div>
+          </div>
 
           <div className="flex flex-col lg:flex-row items-center justify-between p-8 sm:p-12 lg:p-16 gap-8 relative z-10">
             {/* Left Content */}
@@ -39,7 +64,7 @@ export const AdvisorBanner: React.FC = () => {
                 className="
                   inline-flex items-center justify-center gap-3 px-8 py-4 
                   bg-brand-highlight text-brand-tertiary rounded-full font-poppins font-bold text-base 
-                  hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-brand-highlight/20 w-full sm:w-auto
+                  hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl w-full sm:w-auto
                 "
               >
                 <MessageCircle className="w-5 h-5 fill-current" />
