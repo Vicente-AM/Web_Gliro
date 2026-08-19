@@ -8,8 +8,9 @@ export const Hero: React.FC = () => {
     <main
       id="inicio"
       className="
-        relative min-h-[640px] md:min-h-[calc(100vh-2rem)] m-2.5 md:m-4 rounded-[2.5rem] 
-        overflow-hidden flex flex-col justify-center items-center shadow-2xl ring-1 ring-slate-900/10 group py-16 md:py-20
+        relative min-h-[620px] md:min-h-[calc(100vh-2rem)] m-2 sm:m-3 md:m-4 rounded-[2rem] md:rounded-[2.5rem] 
+        overflow-hidden flex flex-col justify-center items-center shadow-2xl ring-1 ring-slate-900/10 group 
+        pt-28 pb-12 sm:pt-32 sm:pb-16 md:py-20
       "
     >
       {/* Interactive WebGL Scanner Background */}

@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
       className={`
         fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none
         transition-all duration-300 ease-in-out
-        ${scrolled ? 'pt-2 md:pt-3 px-3 md:px-6' : 'pt-5 md:pt-7 px-4 md:px-8'}
+        ${scrolled ? 'pt-2 md:pt-3 px-3 md:px-6' : 'pt-3 sm:pt-4 md:pt-7 px-3.5 md:px-8'}
       `}
     >
       <nav
@@ -39,22 +39,22 @@ export const Navbar: React.FC = () => {
           rounded-full
           ${
             scrolled
-              ? 'max-w-[1080px] px-5 py-2 md:px-6 md:py-2 bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-900/5'
-              : 'max-w-[1240px] px-6 py-3.5 md:px-8 md:py-4 bg-white/95 backdrop-blur-md border border-slate-200/70 shadow-md'
+              ? 'max-w-[1080px] px-4 py-2 md:px-6 md:py-2 bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-900/5'
+              : 'max-w-[1240px] px-4 py-2.5 md:px-8 md:py-4 bg-white/95 backdrop-blur-md border border-slate-200/70 shadow-md'
           }
         `}
       >
         {/* Brand Logo */}
         <a
           href="#inicio"
-          className="flex items-center ml-4 group cursor-pointer focus:outline-none select-none transition-all duration-300"
+          className="flex items-center ml-2 md:ml-4 group cursor-pointer focus:outline-none select-none transition-all duration-300"
         >
           <img
             src="/media/Logo Gliro N SF.png"
             alt="Gliro"
             className={`
-              w-auto object-contain transition-all duration-300 group-hover:opacity-90 scale-240
-              ${scrolled ? 'h-7 md:h-8 max-w-[120px]' : 'h-8 md:h-10 max-w-[140px]'}
+              w-auto object-contain transition-all duration-300 group-hover:opacity-90 scale-180 md:scale-240
+              ${scrolled ? 'h-6 md:h-8 max-w-[110px] md:max-w-[120px]' : 'h-7 md:h-10 max-w-[120px] md:max-w-[140px]'}
             `}
           />
         </a>
