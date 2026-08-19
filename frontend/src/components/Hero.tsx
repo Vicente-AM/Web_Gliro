@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
             Innovación y automatización a tu medida
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-slate-200/90 max-w-3xl mx-auto leading-relaxed font-light text-balance">
-            Desarrollamos software personalizado, automatizamos procesos con IA y creamos soluciones SaaS que ahorran tiempo y dinero a nuestros clientes.
+            Desarrollamos software, automatizamos procesos y creamos soluciones SaaS que ahorran tiempo y dinero a nuestros clientes.
           </p>
         </div>
 
