@@ -257,7 +257,7 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
   tint = '#ffffff',
   mouseReact = true,
   mouseStrength = 0.2,
-  dpr = Math.min(window.devicePixelRatio || 1, 2),
+  dpr = 1, // Optimized DPR clamp to save GPU fill rate
   pageLoadAnimation = true,
   brightness = 1,
   className = '',
@@ -275,7 +275,6 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
   const timeOffsetRef = useRef<number>(Math.random() * 100);
 
   const tintVec = useMemo(() => hexToRgb(tint), [tint]);
-
   const ditherValue = useMemo(() => (typeof dither === 'boolean' ? (dither ? 1 : 0) : dither), [dither]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -299,7 +298,8 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
     const ctn = containerRef.current;
     if (!ctn) return;
 
-    const renderer = new Renderer({ dpr });
+    // Use dpr: 1 for lightweight shader execution
+    const renderer = new Renderer({ dpr: Math.min(dpr, 1.0), antialias: false });
     rendererRef.current = renderer;
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 1);
@@ -315,7 +315,6 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
           value: new Color(gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height)
         },
         uScale: { value: scale },
-
         uGridMul: { value: new Float32Array(gridMul) },
         uDigitSize: { value: digitSize },
         uScanlineIntensity: { value: scanlineIntensity },
@@ -354,8 +353,20 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
     resizeObserver.observe(ctn);
     resize();
 
+    let isVisible = true;
+    let isPageVisible = !document.hidden;
+    let lastFrameTime = 0;
+    const FRAME_INTERVAL = 1000 / 45; // Throttle to smooth 45fps to eliminate GPU load
+
     const update = (t: number) => {
-      rafRef.current = requestAnimationFrame(update);
+      // Throttle render rate
+      if (t - lastFrameTime < FRAME_INTERVAL) {
+        if (isVisible && isPageVisible) {
+          rafRef.current = requestAnimationFrame(update);
+        }
+        return;
+      }
+      lastFrameTime = t;
 
       if (pageLoadAnimation && loadAnimationStartRef.current === 0) {
         loadAnimationStartRef.current = t;
@@ -389,15 +400,49 @@ export const FaultyTerminal: React.FC<FaultyTerminalProps> = ({
       }
 
       renderer.render({ scene: mesh });
+      if (isVisible && isPageVisible) {
+        rafRef.current = requestAnimationFrame(update);
+      }
     };
-    rafRef.current = requestAnimationFrame(update);
+
+    const tryStart = () => {
+      if (isVisible && isPageVisible && rafRef.current === 0) {
+        rafRef.current = requestAnimationFrame(update);
+      }
+    };
+    const tryStop = () => {
+      if (rafRef.current !== 0) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = 0;
+      }
+    };
+
+    // IntersectionObserver to pause rendering when banner is offscreen
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        isVisible ? tryStart() : tryStop();
+      },
+      { threshold: 0 }
+    );
+    io.observe(ctn);
+
+    const onVisibility = () => {
+      isPageVisible = !document.hidden;
+      isPageVisible ? tryStart() : tryStop();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    tryStart();
     ctn.appendChild(gl.canvas);
 
     if (mouseReact) window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
+      tryStop();
+      io.disconnect();
       resizeObserver.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
       if (mouseReact) window.removeEventListener('mousemove', handleMouseMove);
       if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();

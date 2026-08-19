@@ -213,7 +213,7 @@ export const Scanner: React.FC<ScannerProps> = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, 1.0)
     });
 
     const gl = renderer.gl;
@@ -311,8 +311,18 @@ export const Scanner: React.FC<ScannerProps> = ({
     let isVisible = true;
     let isPageVisible = !document.hidden;
     const t0 = performance.now();
+    let lastFrameTime = 0;
+    const FRAME_INTERVAL = 1000 / 45;
 
     const loop = (t: number) => {
+      if (t - lastFrameTime < FRAME_INTERVAL) {
+        if (isVisible && isPageVisible) {
+          raf = requestAnimationFrame(loop);
+        }
+        return;
+      }
+      lastFrameTime = t;
+
       (program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001;
 
       if (!mouseEnabledRef.current) {
@@ -327,7 +337,9 @@ export const Scanner: React.FC<ScannerProps> = ({
       (program.uniforms.uMouseActive as { value: number }).value = mouseActive;
 
       renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
+      if (isVisible && isPageVisible) {
+        raf = requestAnimationFrame(loop);
+      }
     };
 
     const tryStart = () => {
