@@ -8,7 +8,7 @@ export const siteBrand = {
   email: "contacto@gliro.cl",
   whatsappUrl: "https://wa.me/56975638193?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20con%20Gliro",
   instagramUrl: "https://www.instagram.com/gliro.cl",
-  linkedinUrl: "https://www.linkedin.com/company/gliro",
+  linkedinUrl: "https://www.linkedin.com/company/glirocl/posts/?feedView=all",
   location: "Santiago, Chile. Servicios tecnológicos para todo el país.",
   schedule: "Lunes a Viernes 9:00 - 18:00 hrs",
 };
@@ -146,7 +146,7 @@ export const portfolioData: ProjectItem[] = [
     title: "Automatizaciones RPA & DPA",
     category: "RPA · Transformación Digital",
     categoryKey: "corporate",
-    image: "",
+    image: "https://images.pexels.com/photos/35280311/pexels-photo-35280311.jpeg",
     results: "Automatizaciones personalizadas para procesos repetitivos y toma de decisiones basada en datos",
     url: "",
   },
