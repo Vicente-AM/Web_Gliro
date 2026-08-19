@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
             <div className="flex gap-3">
               {/* LinkedIn Icon */}
               <a
-                href="https://www.linkedin.com"
+                href={siteBrand.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Gliro en LinkedIn"
@@ -33,6 +33,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect width="4" height="12" x="2" y="9"/>
                   <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+              {/* Instagram Icon */}
+              <a
+                href={siteBrand.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Gliro en Instagram"
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-brand-highlight hover:border-brand-highlight transition-all duration-300"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
                 </svg>
               </a>
               {/* WhatsApp Icon */}
@@ -59,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 <a href="#productos" className="text-slate-400 hover:text-brand-highlight transition-colors">Nuestros Productos</a>
               </li>
               <li>
-                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Servicios a Medida</a>
+                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Servicios & Soluciones</a>
               </li>
               <li>
                 <a href="#portafolio" className="text-slate-400 hover:text-brand-highlight transition-colors">Clientes & Casos</a>
@@ -87,10 +101,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 <a href="#productos" className="text-slate-400 hover:text-brand-highlight transition-colors">Broker IA (Inmobiliarias)</a>
               </li>
               <li>
-                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Software a Medida</a>
+                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Desarrollo de Software / App Web / Landing Page</a>
               </li>
               <li>
-                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Automatización de Procesos</a>
+                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Automatización de Procesos & IA</a>
+              </li>
+              <li>
+                <a href="#servicios" className="text-slate-400 hover:text-brand-highlight transition-colors">Servicios de TI, Infraestructura & Cloud</a>
               </li>
             </ul>
           </div>

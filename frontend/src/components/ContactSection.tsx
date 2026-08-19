@@ -259,17 +259,17 @@ export const ContactSection: React.FC = () => {
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-highlight focus:border-transparent outline-none transition-all text-sm md:text-base text-brand-secondary cursor-pointer"
                   >
                     <option value="" disabled>Selecciona una opción</option>
-                    <option value="software_custom">Desarrollo de Software a Medida / App Web</option>
+                    <option value="software_custom">Desarrollo de Software / App Web / Landing Page</option>
                     <option value="licitracker">Demo o Información de Licitracker (MercadoPúblico)</option>
                     <option value="traza">Demo o Información de Traza (ISO 9001)</option>
-                    <option value="broker_ia">Demo de Broker IA (Inmobiliarias)</option>
+                    <option value="broker_ia">Demo o Información de Broker IA (Inmobiliarias)</option>
                     <option value="automation_ia">Automatización de Procesos & RPA con IA</option>
                     <option value="it_consulting">Servicios de TI, Infraestructura & Cloud</option>
                   </select>
                 </div>
 
                 {/* Budget Select */}
-                <div>
+                {/*<div>
                   <label htmlFor="budget" className="block text-xs md:text-sm font-semibold text-brand-tertiary mb-1.5">
                     Presupuesto o Modalidad Estimada <span className="text-red-500">*</span>
                   </label>
@@ -287,7 +287,7 @@ export const ContactSection: React.FC = () => {
                     <option value="from_1m_to_4m">Proyecto entre $1.500.000 y $4.000.000 CLP</option>
                     <option value="over_4m">Proyecto corporativo más de $4.000.000 CLP</option>
                   </select>
-                </div>
+                </div>*/}
 
                 {/* Submit Button */}
                 <div className="pt-2">

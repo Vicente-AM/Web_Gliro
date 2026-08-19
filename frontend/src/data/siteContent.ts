@@ -7,6 +7,8 @@ export const siteBrand = {
   phone: "+56 9 7563 8193",
   email: "contacto@gliro.cl",
   whatsappUrl: "https://wa.me/56975638193?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20con%20Gliro",
+  instagramUrl: "https://www.instagram.com/gliro.cl",
+  linkedinUrl: "https://www.linkedin.com/company/gliro",
   location: "Santiago, Chile. Servicios tecnológicos para todo el país.",
   schedule: "Lunes a Viernes 9:00 - 18:00 hrs",
 };
