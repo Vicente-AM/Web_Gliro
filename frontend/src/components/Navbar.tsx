@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import GooeyNav from './GooeyNav';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,6 +23,11 @@ export const Navbar: React.FC = () => {
     { name: 'Contacto', href: '#contacto' },
   ];
 
+  const gooeyItems = navLinks.map(link => ({
+    label: link.name,
+    href: link.href
+  }));
+
   return (
     <header
       className={`
@@ -39,8 +45,8 @@ export const Navbar: React.FC = () => {
           rounded-full min-h-[52px] md:min-h-0
           ${
             scrolled
-              ? 'max-w-[1080px] px-4 py-2 md:px-6 md:py-2 bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-900/5'
-              : 'max-w-[1240px] px-4 py-2.5 md:px-8 md:py-4 bg-white/95 backdrop-blur-md border border-slate-200/70 shadow-md'
+              ? 'max-w-[1140px] px-4 py-2 md:px-6 md:py-2 bg-white/85 backdrop-blur-xl border border-slate-200/90 shadow-xl shadow-slate-900/5'
+              : 'max-w-[1280px] px-4 py-2.5 md:px-8 md:py-3.5 bg-white/95 backdrop-blur-md border border-slate-200/70 shadow-md'
           }
         `}
       >
@@ -64,22 +70,18 @@ export const Navbar: React.FC = () => {
           />
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`
-                rounded-full font-semibold text-brand-secondary 
-                hover:text-brand-tertiary hover:bg-slate-100/80 
-                transition-all duration-300 uppercase tracking-wider
-                ${scrolled ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-xs md:text-sm'}
-              `}
-            >
-              {link.name}
-            </a>
-          ))}
+        {/* Desktop Gooey Nav Links */}
+        <div className="hidden lg:flex items-center">
+          <GooeyNav
+            items={gooeyItems}
+            particleCount={15}
+            particleDistances={[90, 10]}
+            particleR={100}
+            initialActiveIndex={0}
+            animationTime={600}
+            timeVariance={300}
+            colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+          />
         </div>
 
         {/* Right Action: CTA Button */}
