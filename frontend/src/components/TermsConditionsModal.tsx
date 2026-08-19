@@ -74,7 +74,7 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
               <h3>1. Aceptación y Condiciones Generales</h3>
             </div>
             <p>
-              Los presentes Términos y Condiciones regulan la contratación y prestación de servicios tecnológicos ofrecidos por <strong>Gliro</strong> (en adelante, «Gliro», «nosotros» o «la Empresa»), incluyendo desarrollo de software a medida, licenciamiento de productos SaaS (como <em>Licitracker</em> y <em>Traza</em>), automatizaciones de procesos con IA y despliegue de infraestructura cloud.
+              Los presentes Términos y Condiciones regulan la contratación y prestación de servicios tecnológicos ofrecidos por <strong>Gliro</strong> (en adelante, «Gliro», «nosotros» o «la Empresa»), incluyendo desarrollo de software, licenciamiento de productos SaaS (como <em>Licitracker</em> y <em>Traza</em>), automatizaciones de procesos con IA y despliegue de infraestructura cloud.
             </p>
             <p>
               La aceptación de una cotización formal, la suscripción a cualquiera de nuestras plataformas o el pago de un anticipo constituye un <strong>contrato vinculante</strong> entre el Cliente y Gliro, rigiéndose por los presentes términos y la legislación de la República de Chile.
@@ -98,11 +98,11 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
             </p>
           </section>
 
-          {/* Section 3: Servicios de Desarrollo de Software a Medida */}
+          {/* Section 3: Servicios de Desarrollo de Software */}
           <section className="space-y-4">
             <div className="flex items-center gap-2 text-brand-tertiary font-poppins font-bold text-lg">
               <Code className="w-5 h-5 text-brand-highlight" />
-              <h3>3. Desarrollo de Software & Automatizaciones a Medida</h3>
+              <h3>3. Desarrollo de Software & Automatizaciones</h3>
             </div>
             
             <div className="space-y-3 text-xs sm:text-sm">
@@ -120,17 +120,17 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+              {/*<div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
                 <h4 className="font-bold text-brand-tertiary text-sm sm:text-base">3.3 Entrega, Accesos y Propiedad del Código</h4>
                 <p className="text-slate-600">
-                  Una vez cancelado el 100% del valor pactado en proyectos de desarrollo a medida, Gliro hará entrega formal de las credenciales, repositorio y accesos correspondientes. <strong>La propiedad intelectual del código desarrollado a medida pertenece al Cliente.</strong> El Cliente asume la responsabilidad sobre modificaciones posteriores ejecutadas por personal externo a Gliro.
+                  Una vez cancelado el 100% del valor pactado en proyectos de desarrollo, Gliro hará entrega formal de las credenciales, repositorio y accesos correspondientes. <strong>La propiedad intelectual del código desarrollado pertenece al Cliente.</strong> El Cliente asume la responsabilidad sobre modificaciones posteriores ejecutadas por personal externo a Gliro.
                 </p>
-              </div>
+              </div>*/}
 
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-                <h4 className="font-bold text-brand-tertiary text-sm sm:text-base">3.4 Garantía Técnica Post-Lanzamiento</h4>
+                <h4 className="font-bold text-brand-tertiary text-sm sm:text-base">3.3 Garantía Técnica Post-Lanzamiento</h4>
                 <p className="text-slate-600">
-                  Todo proyecto a medida cuenta con una <strong>garantía técnica de 30 días corridos</strong> desde su puesta en producción, cubriendo corrección de bugs o inconsistencias respecto a los requerimientos aprobados. La garantía no cubre fallas derivadas de manipulaciones no autorizadas o caídas de APIs de terceros ajenos a Gliro.
+                  Todo proyecto cuenta con una <strong>garantía técnica de 30 días corridos</strong> desde su puesta en producción, cubriendo corrección de bugs o inconsistencias respecto a los requerimientos aprobados. La garantía no cubre fallas derivadas de manipulaciones no autorizadas o caídas de APIs de terceros ajenos a Gliro.
                 </p>
               </div>
             </div>
@@ -147,7 +147,7 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-2 text-slate-600 text-xs sm:text-sm">
               <li><strong>Licencia de uso:</strong> Se otorga una licencia no exclusiva, revocable e intransferible para el uso de la plataforma según el plan contratado.</li>
-              <li><strong>Disponibilidad (SLA):</strong> Nos comprometemos a mantener una disponibilidad mensual superior al 99.5% de la infraestructura cloud, excluyendo ventanas de mantenimiento programadas.</li>
+              <li><strong>Disponibilidad (SLA):</strong> Nos comprometemos a mantener una disponibilidad mensual superior al 90% de la infraestructura cloud, excluyendo ventanas de mantenimiento programadas.</li>
               <li><strong>Soporte y actualizaciones:</strong> Incluye soporte técnico continuo, mejoras de seguridad y nuevas funcionalidades liberadas para su plan.</li>
             </ul>
           </section>
@@ -178,7 +178,7 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
               <h3>6. Esquemas de Pago, Facturación y Cancelaciones</h3>
             </div>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-              <li><strong>• Desarrollos a Medida:</strong> Modalidad por hitos (generalmente 50% anticipo al inicio y 50% contra entrega final en producción, o esquema acordado en la cotización).</li>
+              <li><strong>• Desarrollo de software:</strong> Modalidad por hitos (generalmente 50% anticipo al inicio y 50% contra entrega final en producción, o esquema acordado en la cotización) luego mensualmente se cancela el mantenimiento, hosting y backups del sistema creado.</li>
               <li><strong>• Suscripciones SaaS:</strong> Facturación recurrente mensual o anual anticipada mediante transferencia electrónica o pasarela de pago autorizada.</li>
               <li><strong>• Facturación Electrónica:</strong> Emisión de Factura Electrónica exenta o afecta a IVA según normativa tributaria del SII en Chile.</li>
               <li><strong>• Período de Gracia y Suspensión:</strong> Las suscripciones cuentan con un plazo de gracia de 5 días hábiles. Tras 30 días de mora no subsanada, el servicio podrá ser pausado temporalmente.</li>
@@ -210,7 +210,7 @@ export const TermsConditionsModal: React.FC<TermsConditionsModalProps> = ({ isOp
                 <span className="text-xs text-brand-highlight font-mono font-bold uppercase tracking-wider block">
                   Atención Contractual & Legal
                 </span>
-                <p className="text-sm font-semibold">Equipo de Ingeniería & Contratos Gliro</p>
+                <p className="text-sm font-semibold">Equipo de Contratos Gliro</p>
                 <p className="text-xs text-slate-300">Santiago de Chile · Cobertura y soporte nacional</p>
               </div>
               <a

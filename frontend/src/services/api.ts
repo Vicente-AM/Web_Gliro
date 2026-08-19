@@ -1,6 +1,6 @@
 import type { ContactFormData, ContactApiResponse } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8001/api/v1';
 
 export async function submitContactForm(data: ContactFormData): Promise<ContactApiResponse> {
   try {
@@ -14,15 +14,18 @@ export async function submitContactForm(data: ContactFormData): Promise<ContactA
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.detail || 'Hubo un error al procesar tu solicitud');
+      throw new Error(errorData.detail || 'Hubo un error al procesar tu solicitud.');
     }
 
     return await response.json();
   } catch (error) {
+    if (error instanceof TypeError && error.message.includes('fetch')) {
+      throw new Error('No se pudo establecer conexión con el servidor de Gliro. Por favor escríbenos directamente por WhatsApp al +56 9 7563 8193.');
+    }
     if (error instanceof Error) {
       throw error;
     }
-    throw new Error('Error de conexión con el servidor');
+    throw new Error('Error inesperado al enviar el formulario.');
   }
 }
 
