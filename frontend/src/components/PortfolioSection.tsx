@@ -91,41 +91,41 @@ export const PortfolioSection: React.FC = () => {
               </div>
             ))}
 
-            {/* Slider Floating Controller Bar */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 md:gap-3 bg-black/40 backdrop-blur-xl border border-white/20 rounded-full px-4 py-2.5 shadow-2xl">
+            {/* Slider Floating Controller Bar - Compact & Sleek */}
+            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 sm:gap-2 bg-black/50 backdrop-blur-xl border border-white/15 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-2xl">
               <button
                 onClick={prevSlide}
-                className="text-white/80 hover:text-white p-2 hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+                className="text-white/70 hover:text-white p-1 sm:p-1.5 hover:bg-white/10 rounded-full transition-colors cursor-pointer"
                 aria-label="Proyecto anterior"
               >
-                <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
+                <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
 
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/20 hover:bg-brand-highlight hover:text-brand-tertiary text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+                className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/20 hover:bg-brand-highlight hover:text-brand-tertiary text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
                 aria-label={isPlaying ? 'Pausar carrusel' : 'Reanudar carrusel'}
               >
-                {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
+                {isPlaying ? <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" /> : <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5" />}
               </button>
 
               <button
                 onClick={nextSlide}
-                className="text-white/80 hover:text-white p-2 hover:bg-white/10 rounded-full transition-colors cursor-pointer"
+                className="text-white/70 hover:text-white p-1 sm:p-1.5 hover:bg-white/10 rounded-full transition-colors cursor-pointer"
                 aria-label="Proyecto siguiente"
               >
-                <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
 
-              <div className="w-px h-5 bg-white/20 mx-1"></div>
+              <div className="w-px h-3.5 sm:h-4 bg-white/20 mx-0.5"></div>
 
               {/* Indicator Dots */}
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5">
                 {featuredProjects.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentIndex(i)}
-                    className={`transition-all duration-300 rounded-full h-1.5 ${i === currentIndex ? 'w-6 bg-brand-highlight' : 'w-1.5 bg-white/40 hover:bg-white/70'}`}
+                    className={`transition-all duration-300 rounded-full h-1 sm:h-1.5 ${i === currentIndex ? 'w-4 sm:w-5 bg-brand-highlight' : 'w-1 sm:w-1.5 bg-white/40 hover:bg-white/70'}`}
                     aria-label={`Ir al proyecto ${i + 1}`}
                   />
                 ))}
