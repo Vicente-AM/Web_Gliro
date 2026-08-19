@@ -4,9 +4,10 @@ import { siteBrand } from '../data/siteContent';
 
 interface FooterProps {
   onOpenPrivacy?: () => void;
+  onOpenTerms?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
   return (
     <footer className="bg-brand-tertiary text-white pt-14 md:pt-20 pb-10 mx-2.5 md:mx-4 mb-4 rounded-[2.5rem] border border-slate-800/80">
       <div className="max-w-[1350px] mx-auto px-6 md:px-12 text-center md:text-left">
@@ -141,9 +142,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy }) => {
             >
               Política de Privacidad
             </button>
-            <a href="#contacto" className="hover:text-white transition-colors text-slate-400">
+            <button
+              type="button"
+              onClick={onOpenTerms}
+              className="hover:text-white transition-colors cursor-pointer text-slate-400 hover:text-brand-highlight"
+            >
               Términos del Servicio
-            </a>
+            </button>
           </div>
         </div>
       </div>

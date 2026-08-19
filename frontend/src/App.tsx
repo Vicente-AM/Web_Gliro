@@ -13,14 +13,18 @@ import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CookieBanner } from './components/CookieBanner';
 import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
+import { TermsConditionsModal } from './components/TermsConditionsModal';
 
 export const App: React.FC = () => {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleHash = () => {
       if (window.location.hash === '#privacidad') {
         setPrivacyModalOpen(true);
+      } else if (window.location.hash === '#terminos') {
+        setTermsModalOpen(true);
       }
     };
     handleHash();
@@ -51,7 +55,10 @@ export const App: React.FC = () => {
         <TestimonialsMarquee />
         <FaqAccordion />
         <ContactSection />
-        <Footer onOpenPrivacy={() => setPrivacyModalOpen(true)} />
+        <Footer
+          onOpenPrivacy={() => setPrivacyModalOpen(true)}
+          onOpenTerms={() => setTermsModalOpen(true)}
+        />
         <FloatingWhatsApp />
         <CookieBanner onOpenPrivacy={() => setPrivacyModalOpen(true)} />
       </div>
@@ -62,6 +69,17 @@ export const App: React.FC = () => {
         onClose={() => {
           setPrivacyModalOpen(false);
           if (window.location.hash === '#privacidad') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }}
+      />
+
+      {/* Terms and Conditions Modal */}
+      <TermsConditionsModal
+        isOpen={termsModalOpen}
+        onClose={() => {
+          setTermsModalOpen(false);
+          if (window.location.hash === '#terminos') {
             history.replaceState(null, '', window.location.pathname + window.location.search);
           }
         }}
