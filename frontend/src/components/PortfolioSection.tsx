@@ -91,8 +91,8 @@ export const PortfolioSection: React.FC = () => {
               </div>
             ))}
 
-            {/* Slider Floating Controller Bar - Compact & Sleek */}
-            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 sm:gap-2 bg-black/50 backdrop-blur-xl border border-white/15 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-2xl">
+            {/* Slider Floating Controller Bar - Compact, Centered on Mobile, Right-aligned on Desktop */}
+            <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:right-10 md:translate-x-0 z-30 flex items-center gap-1.5 sm:gap-2 bg-black/50 backdrop-blur-xl border border-white/15 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-2xl">
               <button
                 onClick={prevSlide}
                 className="text-white/70 hover:text-white p-1 sm:p-1.5 hover:bg-white/10 rounded-full transition-colors cursor-pointer"
