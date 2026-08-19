@@ -2,41 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { siteBrand } from '../data/siteContent';
 
 export const FloatingWhatsApp: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleVisibility = () => {
-      const heroEl = document.getElementById('inicio');
-      const footerEl = document.querySelector('footer');
+    let heroVisible = true;
+    let footerVisible = false;
 
-      let inHero = false;
-      let inFooter = false;
-
-      if (heroEl) {
-        const heroRect = heroEl.getBoundingClientRect();
-        // If hero occupies view or user is near top
-        inHero = heroRect.bottom > 200 && window.scrollY < 400;
-      } else {
-        inHero = window.scrollY < 300;
-      }
-
-      if (footerEl) {
-        const footerRect = footerEl.getBoundingClientRect();
-        // If footer is visible in the viewport
-        inFooter = footerRect.top < window.innerHeight - 80;
-      }
-
-      setVisible(!inHero && !inFooter);
+    const checkVisibility = () => {
+      // Hidden on Hero (#inicio) and on Footer
+      setIsVisible(!heroVisible && !footerVisible);
     };
 
-    handleVisibility();
-    window.addEventListener('scroll', handleVisibility, { passive: true });
-    window.addEventListener('resize', handleVisibility);
+    const heroEl = document.getElementById('inicio');
+    const footerEl = document.querySelector('footer');
 
-    return () => {
-      window.removeEventListener('scroll', handleVisibility);
-      window.removeEventListener('resize', handleVisibility);
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === heroEl) {
+            heroVisible = entry.isIntersecting;
+          } else if (entry.target === footerEl) {
+            footerVisible = entry.isIntersecting;
+          }
+        });
+        checkVisibility();
+      },
+      {
+        threshold: 0.05,
+      }
+    );
+
+    if (heroEl) observer.observe(heroEl);
+    if (footerEl) observer.observe(footerEl);
+
+    // Run initial check
+    checkVisibility();
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -44,7 +46,7 @@ export const FloatingWhatsApp: React.FC = () => {
       aria-label="Contacto por WhatsApp"
       className={`
         fixed bottom-6 right-6 z-50 group transition-all duration-500 ease-in-out
-        ${visible ? 'opacity-100 scale-100 pointer-events-auto translate-y-0' : 'opacity-0 scale-75 pointer-events-none translate-y-6'}
+        ${isVisible ? 'opacity-100 scale-100 pointer-events-auto translate-y-0' : 'opacity-0 scale-75 pointer-events-none translate-y-4'}
       `}
     >
       {/* Outer Pulse Animation Ring */}
@@ -75,3 +77,5 @@ export const FloatingWhatsApp: React.FC = () => {
     </aside>
   );
 };
+
+export default FloatingWhatsApp;
