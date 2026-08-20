@@ -198,7 +198,7 @@ export const ContactSection: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="email" className="block text-xs md:text-sm font-semibold text-brand-tertiary mb-1.5">
-                      Correo Corporativo <span className="text-red-500">*</span>
+                      Correo <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"

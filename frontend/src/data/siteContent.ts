@@ -16,7 +16,7 @@ export const siteBrand = {
 export const heroStats = [
   { value: "16", label: "Nuestros servicios ya en producción" },
   { value: "+40", label: "Clientes ya confian en nuestros servicios" },
-  { value: "2020", label: "Año de inicio de operaciones" },
+  { value: "2020", label: "Año en que iniciamos a impulsar empresas como la tuya" },
 ];
 
 export const whyChooseUs = [

@@ -22,8 +22,8 @@ export const TestimonialsMarquee: React.FC = () => {
     {
       name: "Google Cloud Platform (GCP)",
       category: "Cloud & AI Infrastructure",
-      logoSrc: "/partners/Logo_GpN.png",
-      imgClass: "max-h-11 md:max-h-12 max-w-[180px] scale-210",
+      logoSrc: "https://www.gstatic.com/bricks/image/720624ce-2196-48d4-9963-a31aa86bdfbc.webp",
+      imgClass: "max-h-8 md:max-h-9 max-w-[170px]",
     },
     {
       name: "Gobierno de Chile",

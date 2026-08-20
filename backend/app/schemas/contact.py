@@ -9,7 +9,7 @@ class ContactCreate(BaseModel):
     phone: str = Field(..., min_length=6, max_length=50, description="Teléfono o WhatsApp")
     website: Optional[str] = Field(None, max_length=255, description="Sitio web actual (opcional)")
     goal: str = Field(..., min_length=2, max_length=100, description="Objetivo principal")
-    budget: str = Field(..., min_length=2, max_length=100, description="Rango de presupuesto")
+    budget: Optional[str] = Field(None, max_length=100, description="Rango de presupuesto (opcional)")
     contact_confirmation: Optional[str] = Field(None, description="Honeypot anti-spam field")
 
 

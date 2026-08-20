@@ -1,16 +1,21 @@
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.lead import Lead
 from app.schemas.contact import ContactCreate, ContactResponse, LeadOut
+from app.core.email import send_contact_notification_email
 
 router = APIRouter()
 
 
 @router.post("/contact", response_model=ContactResponse, status_code=status.HTTP_201_CREATED, tags=["Contact"])
-def submit_contact_form(payload: ContactCreate, db: Session = Depends(get_db)):
-    """Receives contact/quote submissions from the website, validates honeypot, and saves to SQLite3."""
+def submit_contact_form(
+    payload: ContactCreate,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db)
+):
+    """Receives contact/quote submissions from the website, validates honeypot, saves to SQLite, and dispatches SMTP email."""
     # Anti-spam honeypot verification
     if payload.contact_confirmation:
         # Silently reject bots without raising alarm
@@ -27,12 +32,23 @@ def submit_contact_form(payload: ContactCreate, db: Session = Depends(get_db)):
             phone=payload.phone.strip(),
             website=payload.website.strip() if payload.website else None,
             goal=payload.goal.strip(),
-            budget=payload.budget.strip(),
+            budget=payload.budget.strip() if payload.budget else "No especificado",
             status="nuevo",
         )
         db.add(new_lead)
         db.commit()
         db.refresh(new_lead)
+
+        # Dispatch SMTP notification email in background
+        lead_dict = {
+            "name": new_lead.name,
+            "email": new_lead.email,
+            "phone": new_lead.phone,
+            "website": new_lead.website,
+            "goal": new_lead.goal,
+            "budget": new_lead.budget,
+        }
+        background_tasks.add_task(send_contact_notification_email, lead_dict)
 
         return ContactResponse(
             success=True,
