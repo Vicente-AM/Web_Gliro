@@ -8,4 +8,29 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: [
+      'gliro.cl',
+      'www.gliro.cl',
+      '.gliro.cl',
+      'localhost',
+      '127.0.0.1',
+    ],
+    hmr: {
+      clientPort: 443,
+    },
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: [
+      'gliro.cl',
+      'www.gliro.cl',
+      '.gliro.cl',
+      'localhost',
+      '127.0.0.1',
+    ],
+  },
 })

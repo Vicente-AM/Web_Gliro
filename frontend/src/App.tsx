@@ -10,7 +10,7 @@ import { TestimonialsMarquee } from './components/TestimonialsMarquee';
 import { FaqAccordion } from './components/FaqAccordion';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { ChatWidget } from './components/ChatWidget';
 import { CookieBanner } from './components/CookieBanner';
 import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
 import { TermsConditionsModal } from './components/TermsConditionsModal';
@@ -59,7 +59,7 @@ export const App: React.FC = () => {
           onOpenPrivacy={() => setPrivacyModalOpen(true)}
           onOpenTerms={() => setTermsModalOpen(true)}
         />
-        <FloatingWhatsApp />
+        <ChatWidget />
         <CookieBanner onOpenPrivacy={() => setPrivacyModalOpen(true)} />
       </div>
 

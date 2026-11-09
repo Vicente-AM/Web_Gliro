@@ -52,3 +52,26 @@ export interface ContactApiResponse {
   message: string;
   lead_id?: number;
 }
+
+export interface ChatRegisterData {
+  nombre: string;
+  email?: string;
+  telefono?: string;
+  empresa?: string;
+}
+
+export interface ChatRegisterResponse {
+  ok: boolean;
+  lead_id: number;
+  nombre: string;
+}
+
+export interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+export interface ChatMessageResponse {
+  reply: string;
+  leadUpdated?: boolean;
+}

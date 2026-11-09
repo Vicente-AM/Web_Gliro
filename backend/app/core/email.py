@@ -12,12 +12,12 @@ def send_contact_notification_email(lead_data: dict) -> bool:
     to_email = settings.NOTIFICATION_EMAIL_TO
     
     # Clean phone for WhatsApp link
-    raw_phone = lead_data.get("phone", "")
+    raw_phone = lead_data.get("phone", "") or ""
     clean_phone = "".join(filter(str.isdigit, raw_phone))
     whatsapp_link = f"https://wa.me/{clean_phone}" if clean_phone else ""
 
     client_name = lead_data.get("name", "Cliente")
-    client_email = lead_data.get("email", "")
+    client_email = lead_data.get("email", "") or ""
     client_goal = lead_data.get("goal", "No especificado")
     client_budget = lead_data.get("budget", "No especificado")
     client_website = lead_data.get("website") or "No informado"
@@ -33,7 +33,6 @@ def send_contact_notification_email(lead_data: dict) -> bool:
         print(f"Servicio / Objetivo: {client_goal}")
         print(f"Presupuesto: {client_budget}")
         print(f"Sitio Web: {client_website}")
-        print("Para enviar correos reales, configura SMTP_HOST, SMTP_USER y SMTP_PASSWORD en backend/.env")
         print("=" * 60 + "\n")
         return False
 
@@ -50,13 +49,13 @@ def send_contact_notification_email(lead_data: dict) -> bool:
         .header h1 {{ color: #ffffff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }}
         .header p {{ color: #94a3b8; margin: 6px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; }}
         .content {{ padding: 32px 28px; }}
-        .badge {{ display: inline-block; background-color: #ecfdf5; color: #047857; font-size: 12px; font-weight: 700; padding: 4px 12px; rounded-full; border: 1px solid #a7f3d0; border-radius: 9999px; margin-bottom: 20px; }}
+        .badge {{ display: inline-block; background-color: #ecfdf5; color: #047857; font-size: 12px; font-weight: 700; padding: 4px 12px; border: 1px solid #a7f3d0; border-radius: 9999px; margin-bottom: 20px; }}
         table {{ width: 100%; border-collapse: collapse; margin-top: 12px; }}
         th, td {{ padding: 12px 14px; text-align: left; font-size: 14px; }}
         tr:nth-child(even) {{ background-color: #f8fafc; }}
         th {{ width: 35%; color: #64748b; font-weight: 600; border-bottom: 1px solid #e2e8f0; }}
         td {{ color: #0f172a; font-weight: 500; border-bottom: 1px solid #e2e8f0; }}
-        .actions {{ margin-top: 30px; text-align: center; display: flex; gap: 12px; justify-content: center; }}
+        .actions {{ margin-top: 30px; text-align: center; }}
         .btn {{ display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 9999px; margin: 6px 4px; }}
         .btn-email {{ background-color: #0f172a; color: #ffffff !important; }}
         .btn-whatsapp {{ background-color: #25D366; color: #ffffff !important; }}
@@ -70,7 +69,7 @@ def send_contact_notification_email(lead_data: dict) -> bool:
           <p>Notificación de Nuevo Prospecto</p>
         </div>
         <div class="content">
-          <div class="badge">Nuevo Mensaje de Contacto</div>
+          <div class="badge">Nuevo Mensaje de Contacto (Web)</div>
           <p style="font-size: 15px; margin-top: 0;">Un nuevo cliente ha completado el formulario en <a href="https://gliro.cl" style="color: #0f172a; font-weight: 700;">gliro.cl</a>:</p>
           
           <table>
@@ -101,7 +100,7 @@ def send_contact_notification_email(lead_data: dict) -> bool:
           </table>
 
           <div class="actions">
-            <a href="mailto:{client_email}?subject=Respuesta%20de%20Gliro%20a%20tu%20consulta" class="btn btn-email">Responder por Correo</a>
+            {"<a href='mailto:" + client_email + "?subject=Respuesta%20de%20Gliro%20a%20tu%20consulta' class='btn btn-email'>Responder por Correo</a>" if client_email else ""}
             {"<a href='" + whatsapp_link + "' class='btn btn-whatsapp'>Abrir WhatsApp</a>" if whatsapp_link else ""}
           </div>
         </div>
@@ -113,7 +112,6 @@ def send_contact_notification_email(lead_data: dict) -> bool:
     </html>
     """
 
-    # Plain text version for non-HTML clients
     plain_text = f"""
     NUEVO PROSPECTO WEB GLIRO
     =========================
@@ -129,11 +127,151 @@ def send_contact_notification_email(lead_data: dict) -> bool:
     msg["Subject"] = f"Nuevo Prospecto Web Gliro: {client_name}"
     msg["From"] = formataddr((settings.SMTP_FROM_NAME, settings.SMTP_FROM_EMAIL or settings.SMTP_USER))
     msg["To"] = to_email
-    msg["Reply-To"] = client_email
+    if client_email:
+        msg["Reply-To"] = client_email
 
     msg.attach(MIMEText(plain_text, "plain", "utf-8"))
     msg.attach(MIMEText(html_content, "html", "utf-8"))
 
+    return _send_mime_message(msg, to_email)
+
+
+def send_chat_lead_notification_email(lead_data: dict, is_update: bool = False) -> bool:
+    """
+    Sends notification email when someone registers in Chatbot or when AI qualifies their interest.
+    """
+    to_email = settings.NOTIFICATION_EMAIL_TO
+
+    raw_phone = lead_data.get("phone", "") or ""
+    clean_phone = "".join(filter(str.isdigit, raw_phone))
+    whatsapp_link = f"https://wa.me/{clean_phone}" if clean_phone else ""
+
+    client_name = lead_data.get("name", "Visitante del Chat")
+    client_email = lead_data.get("email", "") or "No informado"
+    client_company = lead_data.get("company") or "No indicada"
+    client_interest = lead_data.get("interest") or "En conversación con IA..."
+    client_notes = lead_data.get("notes") or "Sin notas adicionales"
+
+    subject_prefix = "🎯 Lead Calificado por Chat IA" if is_update else "💬 Nuevo Contacto en Chatbot"
+    subject = f"{subject_prefix}: {client_name} ({client_company})"
+
+    if not settings.SMTP_HOST or not settings.SMTP_USER:
+        print("\n" + "=" * 60)
+        print(f"[SIMULACIÓN NOTIFICACIÓN CHATBOT - {subject}]")
+        print(f"Nombre: {client_name}")
+        print(f"Empresa: {client_company}")
+        print(f"Email: {client_email}")
+        print(f"Teléfono: {raw_phone}")
+        print(f"Interés: {client_interest}")
+        print(f"Notas: {client_notes}")
+        print("=" * 60 + "\n")
+        return False
+
+    badge_text = "Interés Actualizado por IA" if is_update else "Nuevo Visitante en Chat"
+    badge_bg = "#eff6ff" if is_update else "#ecfdf5"
+    badge_color = "#1d4ed8" if is_update else "#047857"
+    badge_border = "#bfdbfe" if is_update else "#a7f3d0"
+
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b; }}
+        .container {{ max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }}
+        .header {{ background-color: #0f172a; padding: 32px 24px; text-align: center; border-bottom: 3px solid #1ff080; }}
+        .header h1 {{ color: #ffffff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }}
+        .header p {{ color: #94a3b8; margin: 6px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; }}
+        .content {{ padding: 32px 28px; }}
+        .badge {{ display: inline-block; background-color: {badge_bg}; color: {badge_color}; font-size: 12px; font-weight: 700; padding: 4px 12px; border: 1px solid {badge_border}; border-radius: 9999px; margin-bottom: 20px; }}
+        table {{ width: 100%; border-collapse: collapse; margin-top: 12px; }}
+        th, td {{ padding: 12px 14px; text-align: left; font-size: 14px; }}
+        tr:nth-child(even) {{ background-color: #f8fafc; }}
+        th {{ width: 35%; color: #64748b; font-weight: 600; border-bottom: 1px solid #e2e8f0; }}
+        td {{ color: #0f172a; font-weight: 500; border-bottom: 1px solid #e2e8f0; }}
+        .actions {{ margin-top: 30px; text-align: center; }}
+        .btn {{ display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 9999px; margin: 6px 4px; }}
+        .btn-email {{ background-color: #0f172a; color: #ffffff !important; }}
+        .btn-whatsapp {{ background-color: #25D366; color: #ffffff !important; }}
+        .footer {{ background-color: #f8fafc; padding: 20px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }}
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>GLIRO</h1>
+          <p>Asistente Virtual & Chatbot IA</p>
+        </div>
+        <div class="content">
+          <div class="badge">{badge_text}</div>
+          <p style="font-size: 15px; margin-top: 0;">Un visitante ha interactuado con el Chatbot en <a href="https://gliro.cl" style="color: #0f172a; font-weight: 700;">gliro.cl</a>:</p>
+          
+          <table>
+            <tr>
+              <th>Nombre:</th>
+              <td><strong>{client_name}</strong></td>
+            </tr>
+            <tr>
+              <th>Empresa:</th>
+              <td>{client_company}</td>
+            </tr>
+            <tr>
+              <th>Correo:</th>
+              <td>{f'<a href="mailto:{client_email}" style="color: #2563eb; text-decoration: none;">{client_email}</a>' if client_email != 'No informado' else client_email}</td>
+            </tr>
+            <tr>
+              <th>Teléfono:</th>
+              <td><strong>{raw_phone if raw_phone else 'No informado'}</strong></td>
+            </tr>
+            <tr>
+              <th>Interés detectado:</th>
+              <td><span style="color: #059669; font-weight: 700;">{client_interest}</span></td>
+            </tr>
+            <tr>
+              <th>Resumen / Notas:</th>
+              <td>{client_notes}</td>
+            </tr>
+          </table>
+
+          <div class="actions">
+            {"<a href='mailto:" + client_email + "?subject=Contacto%20de%20Gliro%20sobre%20tu%20consulta' class='btn btn-email'>Escribir por Email</a>" if client_email != 'No informado' else ""}
+            {"<a href='" + whatsapp_link + "' class='btn btn-whatsapp'>Contactar por WhatsApp</a>" if whatsapp_link else ""}
+          </div>
+        </div>
+        <div class="footer">
+          Gliro SpA · Notificación automática Chatbot IA · <a href="https://gliro.cl" style="color: #64748b;">gliro.cl</a>
+        </div>
+      </div>
+    </body>
+    </html>
+    """
+
+    plain_text = f"""
+    {subject.upper()}
+    =========================
+    Nombre: {client_name}
+    Empresa: {client_company}
+    Correo: {client_email}
+    Teléfono: {raw_phone}
+    Interés: {client_interest}
+    Notas: {client_notes}
+    """
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = formataddr((settings.SMTP_FROM_NAME, settings.SMTP_FROM_EMAIL or settings.SMTP_USER))
+    msg["To"] = to_email
+    if client_email and client_email != "No informado":
+        msg["Reply-To"] = client_email
+
+    msg.attach(MIMEText(plain_text, "plain", "utf-8"))
+    msg.attach(MIMEText(html_content, "html", "utf-8"))
+
+    return _send_mime_message(msg, to_email)
+
+
+def _send_mime_message(msg: MIMEMultipart, to_email: str) -> bool:
     try:
         if settings.SMTP_SSL:
             server = smtplib.SMTP_SSL(settings.SMTP_HOST, settings.SMTP_PORT, timeout=15)

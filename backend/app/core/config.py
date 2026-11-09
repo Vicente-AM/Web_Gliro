@@ -34,5 +34,11 @@ class Settings:
     SMTP_FROM_EMAIL: str = os.getenv("SMTP_FROM_EMAIL", "v.amigo@gliro.cl")
     SMTP_FROM_NAME: str = os.getenv("SMTP_FROM_NAME", "Gliro Notificaciones")
 
+    # DeepSeek Chatbot
+    DEEPSEEK_API_KEY: str = os.getenv("DEEPSEEK_API_KEY", "")
+    DEEPSEEK_MODEL: str = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+    DEEPSEEK_API_URL: str = os.getenv("DEEPSEEK_API_URL", "https://api.deepseek.com/chat/completions")
+
 
 settings = Settings()
+

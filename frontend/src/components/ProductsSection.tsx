@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { productsData } from '../data/siteContent';
+import { CvetModal } from './CvetModal';
 
 export const ProductsSection: React.FC = () => {
+  const [cvetModalOpen, setCvetModalOpen] = useState(false);
+
   return (
     <section id="productos" className="py-20 md:py-28 bg-slate-50/70 relative overflow-hidden">
       <div className="max-w-[1350px] mx-auto px-6 md:px-12 relative z-10">
@@ -21,7 +24,7 @@ export const ProductsSection: React.FC = () => {
         </div>
 
         {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {productsData.map((prod) => (
             <div
               key={prod.id}
@@ -63,24 +66,44 @@ export const ProductsSection: React.FC = () => {
                 </div>
 
                 <div className="pt-4 border-t border-slate-100">
-                  <a
-                    href={prod.url}
-                    target={prod.url.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex items-center justify-between w-full px-5 py-3 rounded-full 
-                      bg-slate-50 hover:bg-brand-tertiary hover:text-white text-brand-tertiary font-poppins font-bold text-sm transition-all duration-300
-                    "
-                  >
-                    <span>Conocer {prod.title}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  {prod.id === 'cvet' ? (
+                    <button
+                      type="button"
+                      onClick={() => setCvetModalOpen(true)}
+                      className="
+                        inline-flex items-center justify-between w-full px-5 py-3 rounded-full 
+                        bg-slate-50 hover:bg-brand-tertiary hover:text-white text-brand-tertiary font-poppins font-bold text-sm transition-all duration-300 cursor-pointer
+                      "
+                    >
+                      <span>Conocer {prod.title}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  ) : (
+                    <a
+                      href={prod.url}
+                      target={prod.url.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
+                      className="
+                        inline-flex items-center justify-between w-full px-5 py-3 rounded-full 
+                        bg-slate-50 hover:bg-brand-tertiary hover:text-white text-brand-tertiary font-poppins font-bold text-sm transition-all duration-300
+                      "
+                    >
+                      <span>Conocer {prod.title}</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Cvet Detailed Modal */}
+      <CvetModal
+        isOpen={cvetModalOpen}
+        onClose={() => setCvetModalOpen(false)}
+      />
     </section>
   );
 };

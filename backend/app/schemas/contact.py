@@ -24,10 +24,14 @@ class LeadOut(BaseModel):
 
     id: int
     name: str
-    email: str
-    phone: str
-    website: Optional[str]
-    goal: str
-    budget: str
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    company: Optional[str] = None
+    website: Optional[str] = None
+    interest: Optional[str] = None
+    goal: Optional[str] = None
+    budget: Optional[str] = None
     status: str
+    origin: str = "web"
+    notes: Optional[str] = None
     created_at: datetime

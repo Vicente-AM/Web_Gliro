@@ -64,6 +64,16 @@ export const productsData = [
     image: "/media/Logo_Traza.png",
   },
   {
+    id: "cvet",
+    tag: "Veterinarias · Clínicas & Domicilio",
+    title: "Cvet",
+    description: "🐾 Software veterinario hecho en Chile. Ficha clínica, hospitalización, inventario, finanzas y portal del tutor, con Salem —tu asistente con IA— acompañándote en cada atención.",
+    status: "En desarrollo · Solicita demo",
+    statusType: "beta",
+    url: "#cvet",
+    image: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
     id: "broker-ia",
     tag: "Inmobiliarias & Real Estate",
     title: "Broker IA",

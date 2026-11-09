@@ -24,7 +24,7 @@ def get_site_content():
             "primaryCta": {"text": "Conversemos por WhatsApp", "href": "https://wa.me/56975638193?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20con%20Gliro"},
             "secondaryCta": {"text": "Ver nuestros productos", "href": "#productos"},
             "stats": [
-                {"value": "3", "label": "Productos propios"},
+                {"value": "4", "label": "Productos propios"},
                 {"value": "+400", "label": "Palabras/día en Licitracker"},
                 {"value": "ISO 9001", "label": "Con Traza"},
             ],
@@ -45,6 +45,14 @@ def get_site_content():
                 "description": "Gestión documental y trazabilidad para certificadoras: cotización → aprobación → orden de trabajo → inspección → evidencia → cobranza → archivo, todo con fecha y responsable.",
                 "status": "En operación · Usado por DZF y Cardiotec",
                 "url": "https://traza.gliro.cl",
+            },
+            {
+                "id": "cvet",
+                "tag": "Veterinarias · Clínicas & Domicilio",
+                "title": "Cvet",
+                "description": "Software veterinario hecho en Chile con Salem —asistente con IA—: fichas clínicas, hospitalización, inventario, finanzas y carnet QR para clínicas y atención a domicilio.",
+                "status": "En desarrollo · Solicita demo",
+                "url": "https://gliro.cl/contacto/",
             },
             {
                 "id": "broker-ia",
