@@ -84,7 +84,7 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
         <div className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-8 text-brand-secondary scroll-smooth">
           
           {/* El Problema: "Tu veterinaria trabaja casi a ciegas" */}
-          <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-xs">
+          <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-5 sm:p-6">
             <div className="flex items-center gap-2.5 text-amber-900 font-poppins font-extrabold text-base sm:text-lg mb-2">
               <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
               <span>¿Tu veterinaria trabaja casi a ciegas?</span>
@@ -103,7 +103,7 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
               ].map((item, i) => (
                 <div 
                   key={i} 
-                  className="bg-white/90 rounded-xl p-3.5 border border-amber-200/60 text-xs shadow-2xs hover:-translate-y-0.5 hover:shadow-xs hover:border-amber-300 transition-all duration-200"
+                  className="bg-white/90 rounded-xl p-3.5 border border-amber-200/60 text-xs shadow-2xs"
                 >
                   <span className="font-bold text-amber-950 block mb-1">{item.title}</span>
                   <span className="text-slate-600 leading-normal">{item.desc}</span>
@@ -124,19 +124,19 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:-translate-y-0.5 hover:border-brand-highlight/70 transition-all duration-300">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <span className="font-bold text-sm text-brand-tertiary block mb-1">Ley 21.020 aprieta</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   La Ley de Tenencia Responsable y el Registro Nacional empujan a formalizar microchip, vacunas y fichas. El papel ya no alcanza.
                 </p>
               </div>
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:-translate-y-0.5 hover:border-brand-highlight/70 transition-all duration-300">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <span className="font-bold text-sm text-brand-tertiary block mb-1">Mayor inversión en mascotas</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   El cuidado animal crece y las clínicas con él. Ordenarse hoy es lo que separa a la clínica que escala de la que se queda atrás.
                 </p>
               </div>
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:-translate-y-0.5 hover:border-brand-highlight/70 transition-all duration-300">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <span className="font-bold text-sm text-brand-tertiary block mb-1">IA en español, recién hoy</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   Salem resume historiales clínicos e interpreta exámenes en español nativo a un costo justo y accesible.
@@ -191,9 +191,9 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
                   ].map((item, i) => (
                     <div 
                       key={i} 
-                      className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-highlight hover:-translate-y-1 hover:shadow-md transition-all duration-300 group"
+                      className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs"
                     >
-                      <item.icon className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform duration-300" />
+                      <item.icon className="w-5 h-5 text-emerald-600 mb-2" />
                       <span className="font-bold text-sm text-brand-tertiary block mb-1">{item.title}</span>
                       <span className="text-xs text-brand-support leading-relaxed block">{item.desc}</span>
                     </div>
@@ -212,9 +212,9 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
                   ].map((item, i) => (
                     <div 
                       key={i} 
-                      className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-highlight hover:-translate-y-1 hover:shadow-md transition-all duration-300 group"
+                      className="p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs"
                     >
-                      <item.icon className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform duration-300" />
+                      <item.icon className="w-5 h-5 text-emerald-600 mb-2" />
                       <span className="font-bold text-sm text-brand-tertiary block mb-1">{item.title}</span>
                       <span className="text-xs text-brand-support leading-relaxed block">{item.desc}</span>
                     </div>
@@ -233,9 +233,9 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
                   ].map((item, i) => (
                     <div 
                       key={i} 
-                      className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 shadow-2xs hover:border-brand-highlight hover:-translate-y-1 hover:shadow-md transition-all duration-300 group"
+                      className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 shadow-2xs"
                     >
-                      <item.icon className="w-5 h-5 text-emerald-600 mb-2 group-hover:scale-110 transition-transform duration-300" />
+                      <item.icon className="w-5 h-5 text-emerald-600 mb-2" />
                       <span className="font-bold text-sm text-brand-tertiary block mb-1">{item.title}</span>
                       <span className="text-xs text-slate-700 leading-relaxed block">{item.desc}</span>
                     </div>
@@ -246,7 +246,7 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Características Transversales en Cualquier Plan */}
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-slate-300 transition-colors">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-support block mb-3">
               Incluido en cualquier modalidad:
             </span>
