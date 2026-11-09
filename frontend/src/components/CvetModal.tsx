@@ -50,7 +50,7 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
         <div className="relative bg-gradient-to-r from-brand-tertiary via-slate-900 to-brand-tertiary p-6 sm:p-8 text-white flex justify-between items-start border-b border-white/10 shrink-0">
           <div className="space-y-2 max-w-2xl pr-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-highlight/20 border border-brand-highlight/40 text-brand-highlight text-xs font-bold uppercase tracking-wider">
-              <span>🐾 Software Veterinario</span>
+              <span>Software Veterinario</span>
               <span>•</span>
               <span>Hecho en Chile</span>
             </div>
@@ -93,7 +93,7 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
                 { title: 'Todo en islas', desc: 'Un software atrapado en un PC, una planilla y WhatsApp. Nada conversa entre sí.' },
               ].map((item, i) => (
                 <div key={i} className="bg-white/80 rounded-xl p-3 border border-amber-200/60 text-xs">
-                  <span className="font-bold text-amber-950 block mb-1">❌ {item.title}</span>
+                  <span className="font-bold text-amber-950 block mb-1">{item.title}</span>
                   <span className="text-slate-600 leading-normal">{item.desc}</span>
                 </div>
               ))}
@@ -108,24 +108,24 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
             <div className="flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-brand-tertiary" />
               <h3 className="text-lg sm:text-xl font-poppins font-black text-brand-tertiary">
-                ⏱️ Por qué ahora: Nunca fue tan necesario ni tan posible
+                Por qué ahora: Nunca fue tan necesario ni tan posible
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-bold text-sm text-brand-tertiary block mb-1">⚖️ Ley 21.020 aprieta</span>
+                <span className="font-bold text-sm text-brand-tertiary block mb-1">Ley 21.020 aprieta</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   La Ley de Tenencia Responsable y el Registro Nacional empujan a formalizar microchip, vacunas y fichas. El papel ya no alcanza.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-bold text-sm text-brand-tertiary block mb-1">🐶 Mayor inversión en mascotas</span>
+                <span className="font-bold text-sm text-brand-tertiary block mb-1">Mayor inversión en mascotas</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   El cuidado animal crece y las clínicas con él. Ordenarse hoy es lo que separa a la clínica que escala de la que se queda atrás.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <span className="font-bold text-sm text-brand-tertiary block mb-1">✨ IA en español, recién hoy</span>
+                <span className="font-bold text-sm text-brand-tertiary block mb-1">IA en español, recién hoy</span>
                 <p className="text-xs text-brand-support leading-relaxed">
                   Salem resume historiales clínicos e interpreta exámenes en español nativo a un costo justo y accesible.
                 </p>

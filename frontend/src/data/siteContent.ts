@@ -67,7 +67,7 @@ export const productsData = [
     id: "cvet",
     tag: "Veterinarias · Clínicas & Domicilio",
     title: "Cvet",
-    description: "🐾 Software veterinario hecho en Chile. Ficha clínica, hospitalización, inventario, finanzas y portal del tutor, con Salem —tu asistente con IA— acompañándote en cada atención.",
+    description: "Software veterinario hecho en Chile. Ficha clínica, hospitalización, inventario, finanzas y portal del tutor, con Salem —tu asistente con IA— acompañándote en cada atención.",
     status: "En operación",
     statusType: "active",
     url: "https://cvet.cl",
