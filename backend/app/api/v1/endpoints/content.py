@@ -51,8 +51,8 @@ def get_site_content():
                 "tag": "Veterinarias · Clínicas & Domicilio",
                 "title": "Cvet",
                 "description": "Software veterinario hecho en Chile con Salem —asistente con IA—: fichas clínicas, hospitalización, inventario, finanzas y carnet QR para clínicas y atención a domicilio.",
-                "status": "En desarrollo · Solicita demo",
-                "url": "https://gliro.cl/contacto/",
+                "status": "En operación",
+                "url": "https://cvet.cl",
             },
             {
                 "id": "broker-ia",

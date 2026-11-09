@@ -10,7 +10,7 @@ import {
   Stethoscope, 
   Mic, 
   QrCode, 
-  ArrowRight,
+  ExternalLink,
   ShieldCheck,
   Calendar,
   FileCheck2
@@ -41,14 +41,6 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
-  const handleContactClick = () => {
-    onClose();
-    const contactSection = document.getElementById('contacto');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/80 backdrop-blur-md animate-fade-in">
@@ -260,13 +252,15 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
             >
               Cerrar
             </button>
-            <button
-              onClick={handleContactClick}
+            <a
+              href="https://cvet.cl"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-brand-tertiary hover:bg-brand-highlight hover:text-brand-tertiary text-white text-xs font-bold font-poppins transition-all duration-300 shadow-md cursor-pointer"
             >
-              <span>Solicitar Demo de Cvet</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+              <span>Ir a Cvet.cl</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 
@@ -274,3 +268,4 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
     </div>
   );
 };
+
