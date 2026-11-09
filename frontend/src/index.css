@@ -15,6 +15,8 @@
   --animate-marquee-reverse: marquee-reverse 80s linear infinite;
   --animate-ping-slow: ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-modal-in: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fadeIn 0.25s ease-out forwards;
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
@@ -26,6 +28,14 @@
   }
   @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes modalIn {
+    0% { opacity: 0; transform: scale(0.95) translateY(16px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(6px); }
     100% { opacity: 1; transform: translateY(0); }
   }
 }
