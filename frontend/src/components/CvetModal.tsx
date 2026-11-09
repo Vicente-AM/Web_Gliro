@@ -62,8 +62,6 @@ export const CvetModal: React.FC<CvetModalProps> = ({ isOpen, onClose }) => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-highlight/20 border border-brand-highlight/40 text-brand-highlight text-xs font-bold uppercase tracking-wider backdrop-blur-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-highlight animate-pulse"></span>
               <span>Software Veterinario</span>
-              <span>•</span>
-              <span>Hecho en Chile</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-poppins font-black leading-tight tracking-tight">
               Cvet <span className="text-brand-highlight drop-shadow-xs">+ Salem IA</span>
